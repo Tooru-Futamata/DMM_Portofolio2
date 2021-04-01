@@ -21,9 +21,6 @@
 ### 主な利用シーン
 ゴルフをする予定を立て、ゴルフ場を探す時。
 
-## 設計書
-<...>
-
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1EIoY4SK_wR0ELV9wpTDifDDysgWxHTWG4obtjvNYmQ4/edit#gid=0
 
