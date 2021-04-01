@@ -1,5 +1,5 @@
 # FavoriteGolfCourse
-![IMG_8608](https://user-images.githubusercontent.com/76867260/113237558-06d7c400-92e2-11eb-9379-7095f985d246.jpg)
+<img src="https://user-images.githubusercontent.com/76867260/113237558-06d7c400-92e2-11eb-9379-7095f985d246.jpg" width="48">
 
 ## サイト概要
 自分が行ったゴルフ場をレビューを含めて投稿していくサイトです。<br>
