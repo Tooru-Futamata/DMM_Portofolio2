@@ -25,6 +25,7 @@
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1EIoY4SK_wR0ELV9wpTDifDDysgWxHTWG4obtjvNYmQ4/edit#gid=0
 ##ワイヤーフレーム
+https://github.com/Sayo-Shiozuka/FavoriteGolfCourse/files/6248222/wire_ec-template.drawio.pdf
 
 
 ## 開発環境
