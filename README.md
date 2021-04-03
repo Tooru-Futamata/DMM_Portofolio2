@@ -28,10 +28,9 @@ https://docs.google.com/spreadsheets/d/1EIoY4SK_wR0ELV9wpTDifDDysgWxHTWG4obtjvNY
 https://github.com/Sayo-Shiozuka/FavoriteGolfCourse/files/6248222/wire_ec-template.drawio.pdf
 ### ER図
 https://github.com/Sayo-Shiozuka/FavoriteGolfCourse/files/6252027/ER.drawio.pdf
-### テーブル定義書/アプリケーション詳細設計書
-https://docs.google.com/spreadsheets/d/1ZdR-QgQZS7jQkmwmxCNSx12LDh7BDiEYVOtd4BZAARU/edit#gid=359430581
-### WBSタスクスケジュール
+### WBS/テーブル定義書/アプリケーション詳細設計書
 https://docs.google.com/spreadsheets/d/1uTcRCtLYN8S174jrzxAstAS1phlSohkUcoHqUFI4XME/edit#gid=1773513600
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
