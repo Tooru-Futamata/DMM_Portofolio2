@@ -27,7 +27,7 @@ https://docs.google.com/spreadsheets/d/1EIoY4SK_wR0ELV9wpTDifDDysgWxHTWG4obtjvNY
 ### ワイヤーフレーム
 https://github.com/Sayo-Shiozuka/FavoriteGolfCourse/files/6254026/wire_ec-template.drawio.pdf
 ### ER図
-https://github.com/Sayo-Shiozuka/FavoriteGolfCourse/files/6252027/ER.drawio.pdf
+https://github.com/Sayo-Shiozuka/FavoriteGolfCourse/files/6254028/ER.drawio.pdf
 ### WBS/テーブル定義書/アプリケーション詳細設計書
 https://docs.google.com/spreadsheets/d/1uTcRCtLYN8S174jrzxAstAS1phlSohkUcoHqUFI4XME/edit#gid=1773513600
 
