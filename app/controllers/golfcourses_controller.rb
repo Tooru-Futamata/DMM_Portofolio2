@@ -1,2 +1,0 @@
-class GolfcoursesController < ApplicationController
-end
