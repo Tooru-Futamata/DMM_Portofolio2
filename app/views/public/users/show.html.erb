@@ -1,1 +1,27 @@
-<h2>マイページ</h2>
+<!--<p class="text-success">-->
+<!--  <%#= notice %>-->
+<!--</p>-->
+<!--<%# if @user.errors.any? %>-->
+<!--  <div id="error_explanation">-->
+<!--    <h2>-->
+<!--      <%#= pluralize(@user.errors.count, "error") %>-->
+<!--      prohibited this obj from being saved:-->
+<!--    </h2>-->
+<!--    <ul>-->
+<!--      <%# @user.errors.full_messages.each do |message| %>-->
+<!--        <li><%#= message %></li>-->
+<!--      <%# end %>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--<%# end %>-->
+<div class = "container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'public/users/user', user: @user %>
+      <div class="form-group">
+        <%#= render "relationships/follow", user: @user %>
+      </div>
+      <%#= render 'books/book', book: @book %>
+    </div>
+  </div>
+</div>
