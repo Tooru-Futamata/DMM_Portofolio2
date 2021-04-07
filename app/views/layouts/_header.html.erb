@@ -11,9 +11,10 @@
           <!--customerがログインしている時 -->
             <div class="menu">
               <!--<li class="nav-list-item"><%# link_to "マイページ", public_user_path, class: "fas fa-address-card" %></li>-->
-              <li class="nav-list-item"><%= link_to "ゴルフ常を探す", public_map_path, class: "fas fa-utensils" %></li>
-              <li class="nav-list-item"><%= link_to "新規投稿", new_public_post_path %></li>
-              <li class="nav-list-item"><%= link_to "ユーザー", public_users_path, class: "fas fa-shopping-cart" %></li>
+              <li class="nav-list-item"><%= link_to "マイページ", public_user_path(current_user.id), class: "fas fa-user" %></li>
+              <li class="nav-list-item"><%= link_to "ゴルフ常を探す", public_map_path, class: "fas fa-search" %></li>
+              <li class="nav-list-item"><%= link_to "新規投稿", new_public_post_path, class: "fas fa-edit" %></li>
+              <li class="nav-list-item"><%= link_to "ユーザー", public_users_path, class: "fas fa-users" %></li>
               <li class="nav-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt" %></li>
             </div>
              <!--<div class="search">-->
@@ -41,7 +42,7 @@
         <% else %>
           <!-- ログインしていない時 -->
           <div class="menu">
-            <li class="nav-list-item"><%= link_to "About", public_about_path, class: "far fa-comment" %></li>
+            <li class="nav-list-item"><%= link_to "About", about_path, class: "far fa-comment" %></li>
             <li class="nav-list-item"><%= link_to "新規登録", new_user_registration_path, class: "fas fa-user-plus" %></li>
             <li class="nav-list-item"><%= link_to "ログイン", new_user_session_path, class: "fas fa-sign-in-alt" %></li>
           </div>

@@ -13,8 +13,9 @@ devise_for :users, controllers: {
 }
 
   root 'homes#top'
+  get 'about' => 'homes#about'
+
   namespace :public, path: "" do
-    get 'about' => 'homes#about'
     resources :users, only: [:index, :show, :edit, :update]
       get 'followings' => 'users#followings'
       get 'followers' => 'users#followers'
