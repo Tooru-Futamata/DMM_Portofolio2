@@ -6,9 +6,9 @@
     </div>
   </div>
   <div class="row">
-    <% @golf_courses.each do |golf_course| %>
+    <% golf_courses.each do |golf_course| %>
       <div class="col-lg-4">
-        <%= link_to admin_golf_course_path(golf_course.id) do %>
+        <%= link_to public_public_golfcourse_path(golf_course.id) do %>
           <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
         <% end %>
         <%= golf_course.name %><br>

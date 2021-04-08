@@ -6,6 +6,7 @@ class Admin::GolfCoursesController < ApplicationController
   end
 
   def index
+    @golf_courses = GolfCourse.all
   end
 
   def show

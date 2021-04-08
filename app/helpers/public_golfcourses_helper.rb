@@ -1,0 +1,2 @@
+module PublicGolfcoursesHelper
+end

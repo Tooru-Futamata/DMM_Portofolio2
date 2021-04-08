@@ -1,10 +1,14 @@
 
-<h2>User info</h2>
-<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"100x100" %>
-<table class = "table">
+<h2></h2>
+<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"200x200" %><br>
+<!--<strong><%= user.name %></strong>-->
+<!--<div class="name_id">@<%= user.name_id %></div>-->
+
+
+<table class = "table table-borderless">
   <tbody>
     <tr><th>name</th><td><%= user.name %></td></tr>
-    <tr><th>ID</th><td><%= user.name_id %></td></tr>
+    <tr><th>ID</th><td>@<%= user.name_id %></td></tr>
     <tr><th>introduction</th><td><%= user.introduction %></td></tr>
     <tr>
       <th>follows</th>

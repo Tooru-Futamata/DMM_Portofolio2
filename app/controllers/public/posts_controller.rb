@@ -5,6 +5,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.all
+
   end
 
   def show
@@ -18,8 +20,10 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to public_post_path(@post)
+    @post.user_id = current_user.id
+    @post.golf_course_id = params[:golf_course_id]
+    if @post.save!
+      redirect_to public_public_golfcourse_path(@post)
     else
       flash.now[:warning] = "入力不備があります"
       render :new
@@ -38,7 +42,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:course_name,:image, :address, :content)
+    params.require(:post).permit(:title, :content, :golf_course_id)
   end
 
 end

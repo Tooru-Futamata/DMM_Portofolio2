@@ -1,0 +1,14 @@
+<div class="container">
+  <p></p>
+  <h2>ゴルフ場詳細</h2>
+  <div class="row">
+    <%= render 'admin/golf_courses/show', golf_course: @golf_course %>
+  </div>
+  <div class="row posts">
+    <%#= render 'public/posts/index', posts: @posts %>
+  </div>
+  <div class="p-3">
+    <h2 class="mb-3">レビューを投稿する</h2>
+    <%= render 'public/posts/new', post: @post, golf_course: @golf_course %>
+  </div>
+</div>

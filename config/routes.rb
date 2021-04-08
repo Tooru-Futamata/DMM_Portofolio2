@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'public_golfcourses/index'
+  get 'public_golfcourses/show'
+  get 'golfcourses/index'
+  get 'golfcourses/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :admins, controllers: {
@@ -13,7 +17,6 @@ devise_for :users, controllers: {
 }
 
   root 'homes#top'
-  get 'about' => 'homes#about'
 
   namespace :public, path: "" do
     resources :users, only: [:index, :show, :edit, :update]
@@ -26,6 +29,7 @@ devise_for :users, controllers: {
     resources :follows, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
     resources :rankings, only: [:index, :show]
+    resources :public_golfcourses, only: [:index, :show]
   end
 
   namespace :admin do

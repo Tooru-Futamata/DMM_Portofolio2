@@ -1,0 +1,14 @@
+<div class="col-md-2 posts-user">
+  <%= render 'public/users/user' user: @user %>
+</div>
+<% @posts.each do |post| %>
+  <div class="col-md-6 mb-3">
+    <div class="posts-content">
+      <p><%= post.created_at %></p>
+      <h4 class="mb-3">
+        評価|<%= post.title %>
+      </h4>
+      <p><%= post.content %></p>
+    </div>
+  </div>
+<% end %>
