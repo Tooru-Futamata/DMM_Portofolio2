@@ -6,6 +6,18 @@
     <div class="col-lg-8">
       <h2><%= golf_course.name %></h2>
       <p><%= golf_course.address %></p>
+      <div class="average-review-rating" data-score=<%= golf_course.posts.average(:rate) %>></div>
+      <script>
+        $('.average-review-rating').raty({
+          readOnly: true,
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          score: function() {
+            return $(this).attr('data-score')
+          }
+        });
+      </script>
     </div>
   </div>
 </div>
