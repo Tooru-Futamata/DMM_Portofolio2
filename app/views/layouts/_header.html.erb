@@ -1,106 +1,34 @@
-<header class="shadow-sm">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light global-nav">
-    <div class="container">
-      <a class="navbar-brand p-3" href="/"><%= image_tag 'golf_green.png', :size => '60x50' %></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
-            <div class="menu">
-              <li class="nav-list-item"><%= link_to "マイページ", public_user_path(current_user.id), class: "fas fa-user" %></li>
-              <li class="nav-list-item"><%= link_to "ゴルフ場を探す", public_map_path, class: "fas fa-search" %></li>
-              <li class="nav-list-item"><%= link_to "ランキング", public_rankings_path, class: "" %></li>
-              <li class="nav-list-item"><%= link_to "ゴルフ場", public_public_golfcourses_path, class: "" %></li>
-              <li class="nav-list-item"><%= link_to "レビュー", public_posts_path, class: "" %></li>
-              <li class="nav-list-item"><%= link_to "ユーザー", public_users_path, class: "fas fa-users" %></li>
-              <li class="nav-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt" %></li>
-            </div>
-             <div class="search">
-              <%# form_with url: search_path, method: :get, local: true do |f| %>
-              <%# f.text_field 'search[value]', size: "26x4" %>
-              <span class="search-button col-xs-12 text-right">
-                <%# f.select 'search[how]', options_for_select({ "部分一致" => "partical", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "match" }) %>
-                <%# f.submit :"検索" %>
-                    <%# end %></div>
-
-            <% elsif admin_signed_in? %>
-           <!--管理者がログインしている時-->
-          <div class="menu">
-
-            <li class="nav-list-item"><%= link_to "ゴルフ場一覧", admin_golf_courses_path %></li>
-            <li class="nav-list-item"><%= link_to "ゴルフ場登録", new_admin_golf_course_path %></li>
-              <li class="nav-list-item"><%= link_to "ゴルフ場を探す", public_map_path, class: "fas fa-search" %></li>
-              <li class="nav-list-item"><%= link_to "ランキング", public_rankings_path, class: "" %></li>
-              <li class="nav-list-item"><%= link_to "ゴルフ場", public_public_golfcourses_path, class: "" %></li>
-              <li class="nav-list-item"><%= link_to "レビュー", public_posts_path, class: "" %></li>
-              <li class="nav-list-item"><%= link_to "ユーザー", public_users_path, class: "fas fa-users" %></li>
-
-            <li class="nav-list-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt" %></li>
-          </div>
-          <!--<div class="search">-->
-            <%# form_with url: search_path, method: :get, local: true do |f| %>
-              <%# f.text_field 'search[value]', size: "26x4" %>
-              <span class="search-button col-xs-12 text-right">
-                <%# f.select 'search[how]', options_for_select({ "部分一致" => "partical", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "match" }) %>
-                <%# f.submit :"検索" %>
-                    <%# end %></div>
-        <% else %>
-           <!--ログインしていない時-->
-          <div class="menu">
-            <li class="nav-list-item"><%= link_to "ゴルフ場を探す", public_map_path, class: "fas fa-search" %></li>
-            <li class="nav-list-item"><%= link_to "ランキング", public_rankings_path, class: "" %></li>
-            <li class="nav-list-item"><%= link_to "ゴルフ場", public_public_golfcourses_path, class: "" %></li>
-            <li class="nav-list-item"><%= link_to "レビュー", public_posts_path, class: "" %></li>
-            <li class="nav-list-item"><%= link_to "ユーザー", public_users_path, class: "fas fa-users" %></li>
-            <li class="nav-list-item"><%= link_to "新規登録", new_user_registration_path, class: "fas fa-user-plus" %></li>
-            <li class="nav-list-item"><%= link_to "ログイン", new_user_session_path, class: "fas fa-sign-in-alt" %></li>
-          </div>
-        <% end %>
-      </ul>
-      </div>
-    </div>
+<% if user_signed_in? %>
+<!--ユーザーがログインしている時-->
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a><%= link_to "MyPage", public_user_path(current_user.id), class: "fas fa-user p-2 text-dark" %></a>
+    <a><%= link_to "Search", public_map_path, class: "fas fa-search p-2 text-dark" %></a>
+    <a><%= link_to "Ranking", public_rankings_path, class: "fas fa-crown p-2 text-dark" %></a>
+    <a><%= link_to "Courses", public_public_golfcourses_path, class: "fas fa-golf-ball p-2 text-dark" %></a>
+    <a><%= link_to "Review", public_posts_path, class: "fas fa-comments p-2 text-dark" %></a>
+    <a><%= link_to "Users", public_users_path, class: "fas fa-users p-2 text-dark" %></a>
   </nav>
-</header>
-
-
-<!--<header class="shadow-sm">-->
-<!--<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">-->
-<!--    <div class="container">-->
-<!--        <a class="navbar-brand js-scroll-trigger" href="/"><%#= image_tag 'golf_green.png', :size => '60x50' %></a>-->
-<!--        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--            Menu-->
-<!--            <i class="fas fa-bars"></i>-->
-<!--        </button>-->
-<!--        <div class="collapse navbar-collapse" id="navbarResponsive">-->
-<!--            <ul class="navbar-nav ml-auto">-->
-<!--              <%# if user_signed_in? %>-->
-              <!--userがログインしている時-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "マイページ", public_user_path(current_user.id), class: "fas fa-user nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ゴルフ場を探す", public_map_path, class: "fas fa-search nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ランキング", public_rankings_path, class: "fas fa-crown nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ゴルフ場", public_public_golfcourses_path, class: "fas fa-golf-ball nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "レビュー", public_posts_path, class: "fas fa-comments nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ユーザー", public_users_path, class: "fas fa-users nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--              <%# elsif admin_signed_in? %>-->
-          <!-- 管理者がログインしている時 -->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ゴルフ場一覧", admin_golf_courses_path, class: "nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ゴルフ場を探す", public_map_path, class: "fas fa-search nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ランキング", public_rankings_path, class: "fas fa-crown nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ゴルフ場", public_public_golfcourses_path, class: "fas fa-golf-ball nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "レビュー", public_posts_path, class: "fas fa-comments nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ユーザー", public_users_path, class: "fas fa-users nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-<!--                <li class="nav-item mx-0 mx-lg-1"><%#= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %></li>-->
-
-
-
-
-
-
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
-<!--</head>-->
+  <a><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %></a>
+<% elsif admin_signed_in? %>
+<!--管理者がログインしている時-->
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a><%= link_to "Register", new_admin_golf_course_path, class: "fas fa-golf-club p-2 text-dark" %></a>
+    <a><%= link_to "Search", public_map_path, class: "fas fa-search p-2 text-dark" %></a>
+    <a><%= link_to "Ranking", public_rankings_path, class: "fas fa-crown p-2 text-dark" %></a>
+    <a><%= link_to "Courses", public_public_golfcourses_path, class: "fas fa-golf-ball p-2 text-dark" %></a>
+    <a><%= link_to "Review", public_posts_path, class: "fas fa-comments p-2 text-dark" %></a>
+    <a><%= link_to "Users", public_users_path, class: "fas fa-users p-2 text-dark" %></a>
+  </nav>
+  <a><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "btn btn-outline-primary" %></a>
+<% else %>
+<!--ログインしていない時-->
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a><%= link_to "Search", public_map_path, class: "fas fa-search p-2 text-dark" %></a>
+    <a><%= link_to "Ranking", public_rankings_path, class: "fas fa-crown p-2 text-dark" %></a>
+    <a><%= link_to "Courses", public_public_golfcourses_path, class: "fas fa-golf-ball p-2 text-dark" %></a>
+    <a><%= link_to "Review", public_posts_path, class: "fas fa-comments p-2 text-dark" %></a>
+    <a><%= link_to "Users", public_users_path, class: "fas fa-users p-2 text-dark" %></a>
+  </nav>
+  <a><%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary" %></a>
+  <a><%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary" %></a>
+<% end %>
