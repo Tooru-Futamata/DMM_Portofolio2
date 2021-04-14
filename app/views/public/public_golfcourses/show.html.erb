@@ -5,7 +5,7 @@
     <%= render 'admin/golf_courses/show', golf_course: @golf_course %>
   </div>
   <div class="row posts">
-    <%= render 'public/posts/index', posts: @posts %>
+    <%= render 'public/posts/index', golf_course: @golf_course, posts: @posts %>
   </div>
   <div class="p-3">
     <h2 class="mb-3">レビューを投稿する</h2>

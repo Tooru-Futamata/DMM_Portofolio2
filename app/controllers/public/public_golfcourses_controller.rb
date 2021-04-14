@@ -1,6 +1,6 @@
 class Public::PublicGolfcoursesController < ApplicationController
   def index
-    @golf_courses = GolfCourse.all
+    @golf_courses = GolfCourse.all.page(params[:page]).per(8)
   end
 
   def show
