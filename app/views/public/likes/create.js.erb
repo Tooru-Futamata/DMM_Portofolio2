@@ -1,0 +1,2 @@
+$("#like_<%= @golf_course.id %>").html("<%= j(render partial: 'likes/like', locals: { golf_course: @golf_course }) %>");
+  <!-- ｊ メソッドで、JSとして認識してくれて、非同期で更新してくれる -->

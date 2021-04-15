@@ -19,13 +19,16 @@ devise_for :users, controllers: {
   root 'homes#top'
 
   namespace :public, path: "" do
-    resources :users, only: [:index, :show, :edit, :update]
-      get 'followings' => 'users#followings'
-      get 'followers' => 'users#followers'
+    # get 'followings' => 'users#followings'
+    # get 'followers' => 'users#followers'
+    resources :users, only: [:index, :show, :edit, :update] do
+      get :followings, on: :member
+      get :followers, on: :member
+      get :likes, on: :collection
+    end
     resources :posts
       get 'search' => 'posts#search'
       get 'map' => 'posts#map'
-    resources :likes, only: [:create, :destroy]
     resources :follows, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
     resources :rankings, only: [:index, :show]
@@ -33,7 +36,10 @@ devise_for :users, controllers: {
   end
 
   namespace :admin do
-    resources :golf_courses
+    resources :golf_courses do
+      resource :likes, only: [:create, :destroy]
+    end
   end
+  resources :relationships, only: [:create, :destroy]
 
 end

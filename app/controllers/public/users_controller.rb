@@ -6,6 +6,9 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts
+    likes = Like.where(user_id: current_user.id).pluck(:golf_course_id)  # ログイン中のユーザーのお気に入りのgolfcourse_idカラムを取得
+    @like_list = GolfCourse.find(likes)     # gole_coursesテーブルから、お気に入り登録済みのレコードを取得
   end
 
   def edit
@@ -27,15 +30,19 @@ class Public::UsersController < ApplicationController
   end
 
   def followings
+    @user = User.find(params[:id])
+    @users = @user.followings.all
   end
 
   def followers
+    @user = User.find(params[:id])
+    @users = @user.followers.all
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :address, :profile_image, :email)
+    params.require(:user).permit(:name, :introduction, :profile_image, :email)
   end
 
 end

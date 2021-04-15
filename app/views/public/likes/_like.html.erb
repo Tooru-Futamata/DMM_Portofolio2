@@ -1,0 +1,18 @@
+
+<div id="<%= golf_course.id %> like">
+  <% if !Like.exists?(user: current_user, golf_course_id: golf_course_id) %>   # お気に入り未登録の時
+    <%= link_to admin_golf_course_likes_path(golf_course), method: :post, remote: true, class: "favorite-btn favorite-post" do %>
+      <div class="i far fa-thumbs-up">
+        <span> いいね！</span>
+        <%= golf_course.favorites.length %>   # お気に入り登録数
+      </div>
+    <% end %>
+  <% else %>    # お気に入り登録済みの時
+    <%= link_to admin_golf_course_likes_path(golf_course), method: :delete, remote: true, class: "favorite-btn favorite-delete" do %>
+      <div class="i far fa-thumbs-up">
+        <span> いいね！</span>
+        <%= golf_course.likes.length %>   # お気に入り登録数
+      </div>
+    <% end %>
+  <% end %>
+</div>

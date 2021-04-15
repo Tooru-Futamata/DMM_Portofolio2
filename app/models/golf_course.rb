@@ -1,5 +1,6 @@
 class GolfCourse < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
   # belongs_to :ranking
   attachment :image
 
