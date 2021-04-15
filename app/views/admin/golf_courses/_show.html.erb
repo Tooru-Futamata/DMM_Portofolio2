@@ -5,7 +5,12 @@
     </div>
     <div class="col-lg-8">
       <h2><%= golf_course.name %></h2>
-      <p><%= golf_course.address %></p>
+      <p>地方：<%= golf_course.region %></p>
+      <p>住所：
+        <%= golf_course.prefecture %>
+        <%= golf_course.city %>
+        <%= golf_course.building %>
+      </p>
       <div class="average-review-rating" data-score=<%= golf_course.posts.average(:rate) %>></div>
       <script>
         $('.average-review-rating').raty({

@@ -14,9 +14,17 @@ class Admin::GolfCoursesController < ApplicationController
   end
 
   def edit
+    @golf_course = GolfCourse.find(params[:id])
   end
 
   def update
+    @golf_course = GolfCourse.find(params[:id])
+    if @golf_course.update(golf_course_params)
+      redirect_to admin_golf_course_path, notice: 'You have updated user successfully'
+    else
+      flash.now[:warning] = "入力不備があります"
+      render :edit
+    end
   end
 
   def create
@@ -30,12 +38,16 @@ class Admin::GolfCoursesController < ApplicationController
   end
 
   def destroy
+    @golf_course= GolfCourse.find(params[:id])
+    if @golf_course.destroy
+      redirect_to admin_golf_courses_path
+    end
   end
 
   private
 
   def golf_course_params
-    params.require(:golf_course).permit(:name,:image, :address)
+    params.require(:golf_course).permit(:name,:image, :region, :prefecture, :city, :building)
   end
 
 end

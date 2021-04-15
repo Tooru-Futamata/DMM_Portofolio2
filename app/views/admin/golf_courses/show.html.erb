@@ -5,7 +5,30 @@
     </div>
     <div class="col-lg-6">
       <h2><%= @golf_course.name %></h2>
-      <p><%= @golf_course.address %></p>
+      <p>地方：<%= @golf_course.region %></p>
+      <p>住所：
+        <%= @golf_course.prefecture %>
+        <%= @golf_course.city %>
+        <%= @golf_course.building %>
+      </p>
+      <div class="average-review-rating" data-score=<%= golf_course.posts.average(:rate) %>></div>
+      <script>
+        $('.average-review-rating').raty({
+          readOnly: true,
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          score: function() {
+            return $(this).attr('data-score')
+          }
+        });
+      </script>
+      <%= link_to edit_admin_golf_course_path(@golf_course), class:"btn btn-sm btn-success", method: :get do %>
+        編集
+      <% end %>
+      <%= link_to admin_golf_course_path(@golf_course), class:"btn btn-sm btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+        削除
+      <% end %>
     </div>
   </div>
 </div>

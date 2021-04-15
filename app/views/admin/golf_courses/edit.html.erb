@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row1">
-    <h2 class="index-title">ゴルフ場新規登録</h2><br>
-    <%= form_with model: @golf_course, url: admin_golf_courses_path, local:true do |f| %>
+    <h2 class="index-title">ゴルフ場編集</h2><br>
+    <%= form_with model: @golf_course, url: admin_golf_course_path(@golf_course), local:true do |f| %>
       <div class="form-group">
         <%= f.attachment_field :image, placeholder: "ゴルフ場画像" %>
       </div>

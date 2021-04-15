@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-4">
       <h2 class="index-title">ゴルフ場ランキング</h2>
-      <p>(全<%#= golf_courses.count %>件)</p>
+      <p>(<%#= @golf_course.region %>全<%= @golf_courses.count %>件)</p>
     </div>
   </div>
   <div class="row">
@@ -13,7 +13,9 @@
           <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
         <% end %>
         <%= golf_course.name %><br>
-        <%= golf_course.address %><br>
+        <%= golf_course.prefecture %>
+        <%= golf_course.city %>
+        <%= golf_course.building %>
       </div>
     <% end %>
   </div>

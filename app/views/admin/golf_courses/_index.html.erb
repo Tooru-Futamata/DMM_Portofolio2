@@ -12,7 +12,9 @@
           <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
         <% end %>
         <%= golf_course.name %><br>
-        <%= golf_course.address %><br>
+        <%= golf_course.prefecture %>
+        <%= golf_course.city %>
+        <%= golf_course.building %>
       </div>
     <% end %>
   </div>
