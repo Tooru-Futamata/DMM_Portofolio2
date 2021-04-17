@@ -6,7 +6,10 @@ class Admin::GolfCoursesController < ApplicationController
   end
 
   def index
-    @golf_courses = GolfCourse.all
+    @regions = Region.all
+    @region = Region.find(params[:id])
+    @golf_courses = @region.golf_courses.all
+
   end
 
   def show
@@ -47,7 +50,7 @@ class Admin::GolfCoursesController < ApplicationController
   private
 
   def golf_course_params
-    params.require(:golf_course).permit(:name,:image, :region, :prefecture, :city, :building)
+    params.require(:golf_course).permit(:name,:image, :region_ids, :prefecture, :city, :building)
   end
 
 end

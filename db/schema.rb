@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_085624) do
+ActiveRecord::Schema.define(version: 2021_04_16_030804) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,16 +46,17 @@ ActiveRecord::Schema.define(version: 2021_04_15_085624) do
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "region"
     t.integer "prefecture"
     t.string "city"
     t.string "building"
     t.string "postal_code"
+    t.integer "region_id"
+    t.index ["region_id"], name: "index_golf_courses_on_region_id"
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "post_id"
+    t.integer "golf_course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,6 +76,12 @@ ActiveRecord::Schema.define(version: 2021_04_15_085624) do
   create_table "rankings", force: :cascade do |t|
     t.integer "post_id"
     t.integer "golf_course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -7,5 +7,6 @@ class HomesController < ApplicationController
                     order('avg(rate) desc').
                     pluck(:golf_course_id)
                   )
+    @regions = Region.all
   end
 end

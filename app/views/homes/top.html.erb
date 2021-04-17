@@ -28,13 +28,15 @@
     </h2>
     <div class="row mx-auto">
       <div class="d-flex justify-content-center">
-      　<%= link_to "沖縄", public_rankings_path(@okinawa), class: "btn btn-outline-primary" %>
-        <%= link_to "北海道", public_rankings_path(@hokkaido), class: "btn btn-outline-primary" %>
-        <%= link_to "九州", public_rankings_path(@kyusyu), class: "btn btn-outline-primary" %>
-        <%= link_to "関西", public_rankings_path(@kansai), class: "btn btn-outline-primary" %>
-        <%= link_to "中国・四国", public_rankings_path(@chugoku), class: "btn btn-outline-primary" %>
-        <%= link_to "関東・甲信越", public_rankings_path(@kanto), class: "btn btn-outline-primary" %>
-        <%= link_to "東北・北陸", public_rankings_path(@tohoku), class: "btn btn-outline-primary" %>
+        <%# @regions.each do |region| %>
+        　<%= link_to "沖縄", public_rankings_path(@region), class: "btn btn-outline-primary" %>
+          <%= link_to "北海道", public_rankings_path(@region), class: "btn btn-outline-primary" %>
+          <%= link_to "九州", public_rankings_path(@region), class: "btn btn-outline-primary" %>
+          <%= link_to "関西", public_rankings_path(@region), class: "btn btn-outline-primary" %>
+          <%= link_to "中国・四国", public_rankings_path(@region), class: "btn btn-outline-primary" %>
+          <%= link_to "関東・甲信越", public_rankings_path(@region), class: "btn btn-outline-primary" %>
+          <%= link_to "東北・北陸", public_rankings_path(@region), class: "btn btn-outline-primary" %>
+        <%# end %>
       </div>
     </div>
   </div>

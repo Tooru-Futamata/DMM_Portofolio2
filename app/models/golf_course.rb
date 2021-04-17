@@ -2,19 +2,13 @@ class GolfCourse < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   # belongs_to :ranking
+  belongs_to :region
   attachment :image
 
-  @hokkaido = GolfCourse.where(region: 1)
-  @okinawa = GolfCourse.where(region: 2)
-  @kyusyu = GolfCourse.where(region: 3)
-  @kanto = GolfCourse.where(region: 4)
-  @tohoku = GolfCourse.where(region: 5)
-  @chugoku = GolfCourse.where(region: 6)
-  @kansai = GolfCourse.where(region: 7)
 
-  enum region: {
-    北海道: 1, 東北・北陸: 2, 関東・甲信越: 3, 関西: 4, 中国・四国: 5, 九州: 6, 沖縄: 7
-  }, _suffix: true
+  # enum region_id: {
+  #   北海道: 1, 東北・北陸: 2, 関東・甲信越: 3, 関西: 4, 中国・四国: 5, 九州: 6, 沖縄: 7
+  # }, _suffix: true
 
   enum prefecture: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
