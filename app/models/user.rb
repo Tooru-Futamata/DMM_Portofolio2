@@ -29,6 +29,10 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
+  def already_liked?(golf_course)
+    self.likes.exists?(golf_course_id: golf_course.id)
+  end
+
 
 
 end

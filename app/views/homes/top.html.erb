@@ -28,15 +28,9 @@
     </h2>
     <div class="row mx-auto">
       <div class="d-flex justify-content-center">
-        <%# @regions.each do |region| %>
-        　<%= link_to "沖縄", public_rankings_path(@region), class: "btn btn-outline-primary" %>
-          <%= link_to "北海道", public_rankings_path(@region), class: "btn btn-outline-primary" %>
-          <%= link_to "九州", public_rankings_path(@region), class: "btn btn-outline-primary" %>
-          <%= link_to "関西", public_rankings_path(@region), class: "btn btn-outline-primary" %>
-          <%= link_to "中国・四国", public_rankings_path(@region), class: "btn btn-outline-primary" %>
-          <%= link_to "関東・甲信越", public_rankings_path(@region), class: "btn btn-outline-primary" %>
-          <%= link_to "東北・北陸", public_rankings_path(@region), class: "btn btn-outline-primary" %>
-        <%# end %>
+        <% @regions.each do |region| %>
+        　<%= link_to region.name, public_rankings_path(region_id: region.id), class: "btn btn-outline-primary" %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@ class Admin::GolfCoursesController < ApplicationController
 
   def create
     @golf_course = GolfCourse.new(golf_course_params)
-    if @golf_course.save
+    if @golf_course.save!
       redirect_to admin_golf_course_path(@golf_course)
     else
       flash.now[:warning] = "入力不備があります"
@@ -50,7 +50,7 @@ class Admin::GolfCoursesController < ApplicationController
   private
 
   def golf_course_params
-    params.require(:golf_course).permit(:name,:image, :region_ids, :prefecture, :city, :building)
+    params.require(:golf_course).permit(:name,:image, :region_id, :prefecture, :city, :building)
   end
 
 end

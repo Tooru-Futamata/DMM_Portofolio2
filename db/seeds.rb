@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Region.create!([
-  {name:'北海道'.to_i},
-  {name:'沖縄'.to_i},
-  {name:'東北・北陸'.to_i},
-  {name:'関東・甲信越'.to_i},
-  {name:'関西'.to_i},
-  {name:'中国・四国'.to_i},
-  {name:'九州'.to_i}
+  {name:'北海道'},
+  {name:'沖縄'},
+  {name:'東北・北陸'},
+  {name:'関東・甲信越'},
+  {name:'関西'},
+  {name:'中国・四国'},
+  {name:'九州'}
   ])
 

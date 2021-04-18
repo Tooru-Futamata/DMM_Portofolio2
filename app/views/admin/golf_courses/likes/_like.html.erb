@@ -1,0 +1,12 @@
+
+
+
+  <% if current_user.already_liked?(golf_course) %>
+    <%= link_to admin_golf_course_likes_path(golf_course), method: :delete, remote: true do %>
+      ❤︎<%= golf_course.likes.count %>
+    <% end %>
+  <% else %>
+    <%= link_to admin_golf_course_likes_path(golf_course), method: :post, remote: true do %>
+      ♡<%= golf_course.likes.count %>
+    <% end %>
+  <% end %>

@@ -7,6 +7,7 @@ class Public::PublicGolfcoursesController < ApplicationController
     @golf_course = GolfCourse.find(params[:id])
     @post = Post.new
     @posts = Post.all
+    @like = Like.new
   end
 
 end
