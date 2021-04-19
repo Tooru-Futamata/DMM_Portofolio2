@@ -21,13 +21,7 @@
       <div class="form-group">
         <%= render "public/follows/follow", user: @user %>
       </div>
-      <% if @like_list.present? %>
-        <% @like_list.each do |golf_course| %>
-          <%= golf_course.title %>
-          <%= golf_course.content %>
-        <% end %>
-      <% end %>
-      <%#= render 'books/book', book: @book %>
+      <%= render "public/users/tab", posts: @posts, like_list: @like_list, user: @user %>
     </div>
   </div>
 </div>

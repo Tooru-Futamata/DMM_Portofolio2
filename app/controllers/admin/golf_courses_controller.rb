@@ -6,9 +6,7 @@ class Admin::GolfCoursesController < ApplicationController
   end
 
   def index
-    @regions = Region.all
-    @region = Region.find(params[:id])
-    @golf_courses = @region.golf_courses.all
+    @golf_courses = params[:region_id].present? ? GolfCourse.where(region_id: params[:region_id]) : GolfCourse.all
 
   end
 

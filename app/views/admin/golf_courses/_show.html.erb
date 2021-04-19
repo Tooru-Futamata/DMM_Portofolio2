@@ -12,7 +12,9 @@
         <%= golf_course.building %>
       </p>
       <div class="average-review-rating" data-score=<%= golf_course.posts.average(:rate) %>></div>
-      <%= render 'admin/golf_courses/likes/like', golf_course: golf_course %>
+      <div class="like-<%= golf_course.id %>">
+        <%= render 'admin/likes/like', golf_course: golf_course %>
+      </div>
       <script>
         $('.average-review-rating').raty({
           readOnly: true,

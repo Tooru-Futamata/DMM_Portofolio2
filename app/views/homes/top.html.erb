@@ -27,7 +27,7 @@
       <strong>地方からゴルフ場を探す</strong>
     </h2>
     <div class="row mx-auto">
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center col-md-12">
         <% @regions.each do |region| %>
         　<%= link_to region.name, public_rankings_path(region_id: region.id), class: "btn btn-outline-primary" %>
         <% end %>

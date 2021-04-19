@@ -1,31 +1,26 @@
 
-<h2></h2>
-<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"200x200" %><br>
-<!--<strong><%= user.name %></strong>-->
-<!--<div class="name_id">@<%= user.name_id %></div>-->
-
-
-<table class = "table table-borderless">
-  <tbody>
-    <tr><th>name</th><td><%= user.name %></td></tr>
-    <tr><th>ID</th><td>@<%= user.name_id %></td></tr>
-    <tr><th>introduction</th><td><%= user.introduction %></td></tr>
-    <tr>
-      <th>follows</th>
-      <td>
-          <%= link_to user.followings.count, followings_public_user_path(user.id) %>
-      </td>
-    </tr>
-    <tr>
-      <th>followers</th>
-      <td><%= link_to user.followers.count, followers_public_user_path(user.id) %></td>
-    </tr>
-  </tbody>
-</table>
-<% if user == current_user %>
-  <div class="row">
-    <%= link_to edit_public_user_path(user.id), class: "btn btn-outline-secondary btn-block", method: :get do %>
-    <i class="fas fa-user-cog"></i>
-    <% end %>
+<div class="container">
+  <div class="user-profile">
+    <div class="icon text-center">
+      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"200x200" %>
+    </div>
+    <div class="name text-center">
+      <h2><%= user.name %></h2>
+    </div>
+    <div class="name_id text-center">
+      <p>@<%= user.name_id %></p>
+    </div>
+    <div class="introduction text-center">
+      <%= user.introduction %>
+    </div>
+    <% if user == current_user %>
+      <div class="row">
+        <%= link_to edit_public_user_path(user.id), class: "btn btn-outline-secondary btn-block", method: :get do %>
+        <i class="fas fa-user-cog"></i>
+        <% end %>
+      </div>
+    <%end %>
   </div>
-<%end %>
+</div>
+
+

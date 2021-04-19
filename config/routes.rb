@@ -27,12 +27,12 @@ devise_for :users, controllers: {
       get :likes, on: :collection
     end
     resources :posts
-      get 'search' => 'posts#search'
       get 'map' => 'posts#map'
     resources :follows, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
     resources :rankings, only: [:index, :show]
     resources :public_golfcourses, only: [:index, :show]
+    get 'search', to: 'searches#search'
   end
 
   namespace :admin do
@@ -41,5 +41,6 @@ devise_for :users, controllers: {
     end
   end
   resources :relationships, only: [:create, :destroy]
+
 
 end

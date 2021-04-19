@@ -33,6 +33,22 @@ class User < ApplicationRecord
     self.likes.exists?(golf_course_id: golf_course.id)
   end
 
+  def User.search(search, golf_course_or_user, how_search)
+    if golf_course_or_user == "2"
+      if how_search == "1"
+        User.where(['name LIKE ?', "%#{search}%"])
+      elsif how_search == "2"
+        User.where(['name LIKE ?', "#{search}"])
+      elsif how_search == "3"
+        User.where(['name LIKE ?', "#{search}%"])
+      elsif how_search == "4"
+        User.where(['name LIKE ?', "%#{search}"])
+      else
+        User.all
+      end
+    end
+  end
+
 
 
 end

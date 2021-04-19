@@ -3,9 +3,6 @@
   <h2>ゴルフ場詳細</h2>
   <div class="row">
     <%= render 'admin/golf_courses/show', golf_course: @golf_course %>
-    <div class="like<%= @golf_course.id %>">
-      <%= render 'admin/golf_courses/likes/like', golf_course: @golf_course %>
-    </div>
   </div>
   <div class="row posts">
     <%= render 'public/posts/index', golf_course: @golf_course, posts: @posts %>

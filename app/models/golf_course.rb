@@ -21,4 +21,20 @@ class GolfCourse < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }, _suffix: true
 
+  def GolfCourse.search(search, golf_course_or_user, how_search)
+    if golf_course_or_user == "1"
+      if how_search == "1"
+        GolfCourse.where(['name LIKE ?', "%#{search}%"])
+      elsif how_search == "2"
+        GolfCourse.where(['name LIKE ?', "#{search}"])
+      elsif how_search == "3"
+        GolfCourse.where(['name LIKE ?', "#{search}%"])
+      elsif how_search == "4"
+        GolfCourse.where(['name LIKE ?', "%#{search}"])
+      else
+        GolfCourse.all
+      end
+    end
+  end
+
 end
