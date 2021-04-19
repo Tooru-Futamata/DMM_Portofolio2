@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_030804) do
+ActiveRecord::Schema.define(version: 2021_04_19_093059) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,15 +42,15 @@ ActiveRecord::Schema.define(version: 2021_04_16_030804) do
 
   create_table "golf_courses", force: :cascade do |t|
     t.string "name"
-    t.string "address"
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "prefecture"
-    t.string "city"
-    t.string "building"
     t.string "postal_code"
     t.integer "region_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["region_id"], name: "index_golf_courses_on_region_id"
   end
 

@@ -1,15 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <%= attachment_image_tag @golf_course, :image, size: "300x250", fallback: "no_image.jpeg" %>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <h2><%= @golf_course.name %></h2>
       <p>地方：<%= @golf_course.region_id %></p>
       <p>住所：
         <%= @golf_course.prefecture %>
-        <%= @golf_course.city %>
-        <%= @golf_course.building %>
+        <%= @golf_course.address %>
       </p>
       <div class="average-review-rating" data-score=<%= @golf_course.posts.average(:rate) %>></div>
        <%#= render 'admin/golf_courses/likes/like', golf_course: @golf_course %>
@@ -30,6 +29,49 @@
       <%= link_to admin_golf_course_path(@golf_course), class:"btn btn-sm btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
         削除
       <% end %>
+    </div>
+    <div class="col-md-4">
+      <script type="text/javascript">
+        function initMap() {
+      // #latitude,longitudeから位置を特定
+          var test ={lat: <%= @golf_course.latitude %>, lng: <%= @golf_course.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: test
+                    });
+          var transitLayer = new google.maps.TransitLayer();
+          transitLayer.setMap(map);
+
+          var contentString = '住所：<%= @golf_course.address %>';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+
+      // #Map上の指定した位置にピンを挿して表示する
+          var marker = new google.maps.Marker({
+                        position:test,
+                        map: map,
+                        title: contentString
+                       });
+
+           marker.addListener('click', function() {
+             infowindow.open(map, marker);
+           });
+        }
+      </script>
+
+      <!--#以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
+      <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['API_KEY']%>&callback=initMap">
+      </script>
+      <!--#表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
+      <style type="text/css">
+        #map { height: 200px;
+               width: 70%;}
+      </style>
+
+      <!--#mapの表示-->
+      <div id="map"></div>
     </div>
   </div>
 </div>

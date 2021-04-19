@@ -8,8 +8,7 @@
       <p>地方：<%= golf_course.region_id %></p>
       <p>住所：
         <%= golf_course.prefecture %>
-        <%= golf_course.city %>
-        <%= golf_course.building %>
+        <%= golf_course.address %>
       </p>
       <div class="average-review-rating" data-score=<%= golf_course.posts.average(:rate) %>></div>
       <div class="like-<%= golf_course.id %>">
