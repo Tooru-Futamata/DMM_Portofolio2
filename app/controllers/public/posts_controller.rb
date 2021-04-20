@@ -53,12 +53,6 @@ class Public::PostsController < ApplicationController
     end
   end
 
-  def search
-  end
-
-  def map
-  end
-
   private
 
   def post_params

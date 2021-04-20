@@ -16,12 +16,10 @@
 <!--<%# end %>-->
 <div class = "container px-5 px-sm-0">
   <div class="row">
-    <div class="mx-auto">
       <%= render 'public/users/user', user: @user %>
       <div class="form-group">
         <%= render "public/follows/follow", user: @user %>
       </div>
       <%= render "public/users/tab", posts: @posts, like_list: @like_list, user: @user %>
-    </div>
   </div>
 </div>

@@ -2,7 +2,6 @@
 <!--ユーザーがログインしている時-->
   <nav class="my-2 my-md-0 mr-md-3">
     <a><%= link_to "MyPage", public_user_path(current_user.id), class: "fas fa-user p-2 text-white" %></a>
-    <a><%= link_to "Search", public_map_path, class: "fas fa-search p-2 text-white" %></a>
     <a><%= link_to "Ranking", public_rankings_path, class: "fas fa-crown p-2 text-white" %></a>
     <a><%= link_to "Courses", public_public_golfcourses_path, class: "fas fa-golf-ball p-2 text-white" %></a>
     <a><%= link_to "Review", public_posts_path, class: "fas fa-comments p-2 text-white" %></a>
@@ -13,7 +12,6 @@
 <!--管理者がログインしている時-->
   <nav class="my-2 my-md-0 mr-md-3">
     <a><%= link_to "Register", new_admin_golf_course_path, class: "fas fa-plus p-2 text-white" %></a>
-    <a><%= link_to "Search", public_map_path, class: "fas fa-search p-2 text-white" %></a>
     <a><%= link_to "Ranking", public_rankings_path, class: "fas fa-crown p-2 text-white" %></a>
     <a><%= link_to "Courses", admin_golf_courses_path, class: "fas fa-golf-ball p-2 text-white" %></a>
     <a><%= link_to "Review", public_posts_path, class: "fas fa-comments p-2 text-white" %></a>
@@ -23,7 +21,6 @@
 <% else %>
 <!--ログインしていない時-->
   <nav class="my-2 my-md-0 mr-md-3">
-    <a><%= link_to "Search", public_map_path, class: "fas fa-search p-2 text-white" %></a>
     <a><%= link_to "Ranking", public_rankings_path, class: "fas fa-crown p-2 text-white" %></a>
     <a><%= link_to "Courses", public_public_golfcourses_path, class: "fas fa-golf-ball p-2 text-white" %></a>
     <a><%= link_to "Review", public_posts_path, class: "fas fa-comments p-2 text-white" %></a>

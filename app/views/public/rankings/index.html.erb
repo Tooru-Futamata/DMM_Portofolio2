@@ -1,13 +1,34 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-5">
       <h2 class="index-title">ゴルフ場ランキング</h2>
       <p>(全<%#= @golf_courses.regions.count %>件)</p>
+    </div>
+    <div class="col-lg-4 text-right">
+      <div class="btn-group dropright">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          地方で絞る
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @regions.each do |region| %>
+          　<%= link_to region.name, public_rankings_path(region_id: region.id), class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="btn-group dropright">
+        <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          県名で絞る
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
     <% @golf_courses.each.with_index(1) do |golf_course, i| %>
-      <div class="col-lg-4">
+      <div class="col-lg-3 flex">
         <strong>第<%= i %>位</strong><br>
         <%= link_to public_public_golfcourse_path(golf_course.id) do %>
           <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
