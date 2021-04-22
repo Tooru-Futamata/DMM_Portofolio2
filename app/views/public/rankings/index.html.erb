@@ -1,3 +1,5 @@
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <div class="container">
   <div class="row">
     <div class="col-lg-5">
@@ -42,3 +44,23 @@
 </div>
 <%#= paginate @golf_courses %>
 
+  <%# lastFavorite = 0 %>
+  <%# j = 1 %>
+ <%# @all_ranks.each.with_index(1) do |ranking, i| %>
+   <#% if i == 1 %>
+     <%# lastFavorite = ranking.favorites.count %>
+   <%# end %>
+   <%# if ranking.favorites.count != lastFavorite %>
+     <%# j = i %>
+     第<%#= j %>位
+     <%#= ranking.body %>
+     いいね数：<%#= ranking.favorites.count %>
+     <%# lastFavorite = ranking.favorites.count %>
+   <%# else %>
+     <%# lastFavorite = ranking.favorites.count %>
+     第<%#= j %>位
+     <%#= ranking.body %>
+     いいね数：<%#= ranking.favorites.count %>
+    <%# end %>
+  <br>
+ <%# end %>

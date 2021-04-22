@@ -1,3 +1,5 @@
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
@@ -22,12 +24,8 @@
         });
       </script>
       <div class="text-right">
-        <%= link_to edit_admin_golf_course_path(@golf_course), class:"btn btn-sm btn-success", method: :get do %>
-          編集
-        <% end %>
-        <%= link_to admin_golf_course_path(@golf_course), class:"btn btn-sm btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
-          削除
-        <% end %>
+        <%= link_to '編集', edit_admin_golf_course_path(@golf_course), class:"btn btn-sm btn-success", method: :get %>
+        <%= link_to '削除', admin_golf_course_path(@golf_course), class:"btn btn-sm btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' } %>
       </div>
     </div>
     <div class="col-md-4">

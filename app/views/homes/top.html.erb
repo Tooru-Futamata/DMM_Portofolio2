@@ -1,29 +1,27 @@
-<div class="container">
-  <h1 class="title text-center">Favorite Golf Course</h1>
-  <div class="cover-inner text-center">
-    <%= image_tag "golf.jpeg", :width => '700', :height => '400' %>
-  </div>
-</div>
-<div class="container mb-3">
-  <div class="features">
-    <div class="container">
-      <div class="section-title text-center mb-3">
-        <h2 class="title">
-          <strong>FavoriteGolfCourseとは？</strong>
-        </h2>
-        <h4 class="title">
-          FavoriteGolfCourseは、あなたが行きたいゴルフ場が簡単に見つかります。<br>
-          どんな特徴のあるコースなのか、人気があるコースはどのゴルフ場か、<br>
-          ゴルファー達の経験を元にした投稿から、すばやく見つけてみませんか？<br>
-          自分だけのゴルフ記録もこのサイトで簡単に作ってみましょう〜！
-        </h4>
+<!--<div class="container">-->
+<!--  <h1 class="title text-center">Favorite Golf Course</h1>-->
+<!--  <div class="cover-inner text-center">-->
+    <%#= image_tag "golf.jpeg", :width => '700', :height => '400' %>
+<!--  </div>-->
+<!--</div>-->
+<header class="masthead text-white text-center">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <h1 class="mb-3"><strong>FavoriteGolfCourse</strong></h1>
       </div>
+      <h5 class="col-xl-8 mx-auto text-white text-center">
+        FavoriteGolfCourseは、あなたが行きたいゴルフ場が簡単に見つかります。<br>
+        どんな特徴のあるコースなのか、人気があるコースはどのゴルフ場か、<br>
+        ゴルファー達の経験を元にしたレビューから、すばやく見つけてみませんか？<br>
+      </h5>
     </div>
   </div>
-</div>
-<div class="container">
+</header>
+<div class="container my-4">
   <div class="region">
-    <h2 class="title">
+    <h2 class="title mb-3">
       <strong>地方からゴルフ場を探す</strong>
     </h2>
     <div class="row mx-auto">
@@ -35,9 +33,9 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container my-3">
   <div class="ranking mx-auto">
-    <h2><strong>ゴルフ場ランキング</strong></h2>
+    <h2 class="mb-3"><strong>ゴルフ場ランキング</strong></h2>
     <div class="row">
       <% @golf_courses.each.with_index(1) do |golf_course, i| %>
         <div class="col-lg-3">
@@ -45,8 +43,8 @@
           <%= link_to public_public_golfcourse_path(golf_course.id) do %>
             <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
           <% end %>
-          <%= golf_course.name %><br>
-          <%= golf_course.address %><br>
+          <strong><%= golf_course.name %></strong><br>
+          <span><%= golf_course.address %></span><br>
         </div>
       <% end %>
     </div>

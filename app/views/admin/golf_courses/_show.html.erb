@@ -1,75 +1,80 @@
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+    <%= attachment_image_tag golf_course, :image, size: "350x250", fallback: "no_image.jpeg" %>
+    </div>
+    <div class="col-lg-4">
+      <h3 class="pt-4"><strong><%= golf_course.name %></strong></h3>
+      <p class="p-2">住所：
+        <%= golf_course.prefecture %>
+        <%= golf_course.address %>
+      </p>
+      <div class="average-score d-flex pl-2">
+        <div class="average-review-rating" data-score=<%= golf_course.posts.average(:rate) %>></div>
+        <h4 class="average-score-display pl-3 ">
+          <strong><%= golf_course.avg_score %></strong>
+        </h4>
+        <div class="post-count pt-1 pl-2">（<%= golf_course.posts.count %>件）</div>
+      </div>
+      <div class="like-<%= golf_course.id %> m-4">
+        <%= render 'admin/likes/like', golf_course: golf_course %>
+      </div>
+      <script>
+        $('.average-review-rating').raty({
+          readOnly: true,
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          score: function() {
+            return $(this).attr('data-score')
+          }
+        });
+      </script>
+    </div>
+    <div class="col-lg-4">
+      <script type="text/javascript">
+        function initMap() {
+      // #latitude,longitudeから位置を特定
+          var test ={lat: <%= golf_course.latitude %>, lng: <%= golf_course.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: test
+                    });
+          var transitLayer = new google.maps.TransitLayer();
+          transitLayer.setMap(map);
 
-<div class="col-lg-4">
-  <%= attachment_image_tag golf_course, :image, size: "350x250", fallback: "no_image.jpeg" %>
-</div>
-<div class="col-lg-4">
-  <h3 class="pt-4"><strong><%= golf_course.name %></strong></h3>
-  <p class="p-2">住所：
-    <%= golf_course.prefecture %>
-    <%= golf_course.address %>
-  </p>
-  <div class="average-score d-flex pl-2">
-    <div class="average-review-rating" data-score=<%= golf_course.posts.average(:rate) %>></div>
-    <h4 class="average-score-display pl-3 ">
-      <strong><%= golf_course.avg_score %></strong>
-    </h4>
-    <div class="post-count pt-1 pl-2">（<%= golf_course.posts.count %>件）</div>
+          var contentString = '住所：<%= golf_course.address %>';
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+
+      // #Map上の指定した位置にピンを挿して表示する
+          var marker = new google.maps.Marker({
+                        position:test,
+                        map: map,
+                        title: contentString
+                       });
+
+           marker.addListener('click', function() {
+             infowindow.open(map, marker);
+           });
+        }
+      </script>
+
+      <!--#以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
+      <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['API_KEY']%>&callback=initMap">
+      </script>
+      <!--#表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
+      <style type="text/css">
+        #map { height: 250px;
+               width: 100%;}
+      </style>
+
+      <!--#mapの表示-->
+      <div id="map"></div>
+    </div>
   </div>
-  <div class="like-<%= golf_course.id %> m-4">
-    <%= render 'admin/likes/like', golf_course: golf_course %>
-  </div>
-  <script>
-    $('.average-review-rating').raty({
-      readOnly: true,
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      score: function() {
-        return $(this).attr('data-score')
-      }
-    });
-  </script>
-</div>
-<div class="col-md-4">
-  <script type="text/javascript">
-    function initMap() {
-  // #latitude,longitudeから位置を特定
-      var test ={lat: <%= golf_course.latitude %>, lng: <%= golf_course.longitude %>};
-      var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: test
-                });
-      var transitLayer = new google.maps.TransitLayer();
-      transitLayer.setMap(map);
-
-      var contentString = '住所：<%= golf_course.address %>';
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-
-  // #Map上の指定した位置にピンを挿して表示する
-      var marker = new google.maps.Marker({
-                    position:test,
-                    map: map,
-                    title: contentString
-                   });
-
-       marker.addListener('click', function() {
-         infowindow.open(map, marker);
-       });
-    }
-  </script>
-
-  <!--#以下の記述の中にあるYOUR_API_KEYには取得したご自身のAPIキーを記述してください-->
-  <script async defer
-                src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['API_KEY']%>&callback=initMap">
-  </script>
-  <!--#表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
-  <style type="text/css">
-    #map { height: 250px;
-           width: 100%;}
-  </style>
-
-  <!--#mapの表示-->
-  <div id="map"></div>
 </div>

@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   def top
+    @regions = Region.all
     @golf_courses = GolfCourse.
               find(Post.
                     limit(4).
@@ -7,6 +8,5 @@ class HomesController < ApplicationController
                     order('avg(rate) desc').
                     pluck(:golf_course_id)
                   )
-    @regions = Region.all
   end
 end
