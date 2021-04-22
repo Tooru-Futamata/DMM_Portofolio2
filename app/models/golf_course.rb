@@ -5,6 +5,9 @@ class GolfCourse < ApplicationRecord
   belongs_to :region
   attachment :image
 
+  validates :name, presence: true
+  validates :address, presence: true
+
 
   # enum region_id: {
   #   北海道: 1, 東北・北陸: 2, 関東・甲信越: 3, 関西: 4, 中国・四国: 5, 九州: 6, 沖縄: 7

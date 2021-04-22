@@ -7,7 +7,7 @@ class Post < ApplicationRecord
 
   attachment :image
 
-  validates :title, presence: true
+  validates :content, length: { maximum: 200 }
 
   validates :rate, numericality: {
     less_than_or_equal_to: 5,

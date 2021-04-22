@@ -60,7 +60,7 @@ GEM
       execjs
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.7.3)
+    bootsnap (1.7.4)
       msgpack (~> 1.0)
     bootstrap (4.6.0)
       autoprefixer-rails (>= 9.1.0)
@@ -105,6 +105,13 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
+    faker (2.17.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.0)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -139,7 +146,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.9.0)
+    loofah (2.9.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -159,12 +166,12 @@ GEM
     mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.7)
-    nokogiri (1.11.2)
+    nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     popper_js (1.16.0)
-    pry (0.14.0)
+    pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-rails (0.3.9)
@@ -318,6 +325,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  factory_bot_rails
+  faker
   font-awesome-sass (~> 5.13)
   geocoder
   jbuilder (~> 2.5)
