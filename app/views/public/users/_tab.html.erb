@@ -49,7 +49,7 @@
           </div>
           <div class="col-lg-4">
             <%= post.golf_course.name %><br>
-            <%= post.golf_course.prefecture %>
+            <%= post.golf_course.prefecture.name %>
             <%= post.golf_course.address %>
             <div class="average-score d-flex p-2">
             <div class="average-review-rating" data-score=<%= post.golf_course.posts.average(:rate) %>></div>
@@ -76,7 +76,7 @@
                   </div>
                   <div class="course-info mx-auto">
                     <strong><%= golf_course.name %></strong><br>
-                    <%= golf_course.prefecture %>
+                    <%= golf_course.prefecture.name %>
                     <%= golf_course.address %>
                     <div class="average-score d-flex p-2">
                       <div class="average-review-rating" data-score=<%= golf_course.posts.average(:rate) %>></div>

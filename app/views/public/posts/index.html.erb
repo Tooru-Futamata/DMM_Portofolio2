@@ -33,7 +33,7 @@
       </div>
       <div class="col-lg-4">
         <h5><strong><%= post.golf_course.name %></strong></h5>
-        <%= post.golf_course.prefecture %>
+        <%= post.golf_course.prefecture.name %>
         <%= post.golf_course.address %>
         <div class="average-score d-flex p-2">
           <div class="average-review-rating" data-score=<%= post.golf_course.posts.average(:rate) %>></div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_093059) do
+ActiveRecord::Schema.define(version: 2021_04_22_111952) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,20 +32,12 @@ ActiveRecord::Schema.define(version: 2021_04_19_093059) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "follows", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "following_id"
-    t.integer "follower_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "golf_courses", force: :cascade do |t|
     t.string "name"
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "prefecture"
+    t.integer "prefecture_id"
     t.string "postal_code"
     t.integer "region_id"
     t.float "latitude"
@@ -71,6 +63,12 @@ ActiveRecord::Schema.define(version: 2021_04_19_093059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "golf_course_id"
+  end
+
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rankings", force: :cascade do |t|

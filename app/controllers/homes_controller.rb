@@ -8,5 +8,6 @@ class HomesController < ApplicationController
                     order('avg(rate) desc').
                     pluck(:golf_course_id)
                   )
+    @prefectures = Prefecture.all
   end
 end

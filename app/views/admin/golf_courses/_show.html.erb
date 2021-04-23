@@ -8,7 +8,7 @@
     <div class="col-lg-4">
       <h3 class="pt-4"><strong><%= golf_course.name %></strong></h3>
       <p class="p-2">住所：
-        <%= golf_course.prefecture %>
+        <%= golf_course.prefecture.name %>
         <%= golf_course.address %>
       </p>
       <div class="average-score d-flex pl-2">
@@ -18,9 +18,13 @@
         </h4>
         <div class="post-count pt-1 pl-2">（<%= golf_course.posts.count %>件）</div>
       </div>
-      <div class="like-<%= golf_course.id %> m-4">
-        <%= render 'admin/likes/like', golf_course: golf_course %>
-      </div>
+      <% if admin_signed_in? %>
+        <div></div>
+      <% else %>
+        <div class="like-<%= golf_course.id %> m-4">
+          <%= render 'admin/likes/like', golf_course: golf_course %>
+        </div>
+      <% end %>
       <script>
         $('.average-review-rating').raty({
           readOnly: true,

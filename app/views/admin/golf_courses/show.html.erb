@@ -8,7 +8,7 @@
     <div class="col-lg-4">
       <h3><%= @golf_course.name %></h3>
       <p>住所：
-        <%= @golf_course.prefecture %>
+        <%= @golf_course.prefecture.name %>
         <%= @golf_course.address %>
       </p>
       <div class="average-review-rating" data-score=<%= @golf_course.posts.average(:rate) %>></div>

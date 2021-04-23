@@ -7,6 +7,30 @@
       <p>(全<%#= @golf_courses.count %>件)</p>
     </div>
   </div>
+  <div class="col-lg-4 text-right">
+    <div class="btn-group dropright">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        地方で絞る
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% regions.each do |region| %>
+        　<%= link_to region.name, public_public_golfcourses_path(region_id: region.id), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="btn-group dropright">
+      <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        県名で絞る
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% @prefectures.each do |prefecture| %>
+        　<%= link_to prefecture.name, public_rankings_path(prefecture_id: prefecture.id), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <% @golf_courses.each do |golf_course| %>
       <div class="col-lg-3">
@@ -14,7 +38,7 @@
           <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
         <% end %>
         <%= golf_course.name %><br>
-        <%= golf_course.prefecture %>
+        <%= golf_course.prefecture_id %>
         <%= golf_course.address %>
       </p>
       </div>

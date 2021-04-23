@@ -33,6 +33,20 @@
     </div>
   </div>
 </div>
+<div class="container my-4">
+  <div class="region">
+    <h2 class="title mb-3">
+      <strong>県名からゴルフ場を探す</strong>
+    </h2>
+    <div class="row mx-auto">
+      <!--<div class="d-flex justify-content-center col-md-12">-->
+        <% @prefectures.each do |prefecture| %>
+        　<%= link_to prefecture.name, public_rankings_path(prefecture_id: prefecture.id), class: "btn btn-outline-success"  %>
+        <% end %>
+      <!--</div>-->
+    </div>
+  </div>
+</div>
 <div class="container my-3">
   <div class="ranking mx-auto">
     <h2 class="mb-3"><strong>ゴルフ場ランキング</strong></h2>
@@ -44,7 +58,7 @@
             <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
           <% end %>
           <strong><%= golf_course.name %></strong><br>
-          <span><%= golf_course.address %></span><br>
+          <span><%= golf_course.prefecture.name %><%= golf_course.address %></span>
         </div>
       <% end %>
     </div>
