@@ -3,6 +3,7 @@ class GolfCourse < ApplicationRecord
   has_many :likes, dependent: :destroy
   belongs_to :region
   belongs_to :prefecture
+
   attachment :image
 
   validates :name, presence: true

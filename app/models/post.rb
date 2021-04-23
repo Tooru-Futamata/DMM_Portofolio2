@@ -1,13 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user
   belongs_to :golf_course
-  # belongs_to :ranking
-
-  has_many :comments, dependent: :destroy
 
   attachment :image
 
-  validates :content, length: { maximum: 200 }
+  # validates :content, length: { maximum: 200 }
 
   validates :rate, numericality: {
     less_than_or_equal_to: 5,

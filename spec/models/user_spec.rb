@@ -31,11 +31,11 @@ RSpec.describe 'userモデルのテスト', type: :model do
     end
 
     context 'introductionカラム' do
-      it '20文字以下であること(101文字は不可)' do
+      it '20文字以下であること(21文字は不可)' do
         user.introduction = Faker::Lorem.characters(number: 21)
         is_expected.to eq false
       end
-      it '20文字以下であること(100文字は可)' do
+      it '20文字以下であること(20文字は可)' do
         user.introduction = Faker::Lorem.characters(number: 20)
         is_expected.to eq true
       end
