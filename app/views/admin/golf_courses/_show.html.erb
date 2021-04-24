@@ -18,12 +18,12 @@
         </h4>
         <div class="post-count pt-1 pl-2">（<%= golf_course.posts.count %>件）</div>
       </div>
-      <% if admin_signed_in? %>
-        <div></div>
-      <% else %>
+      <% if user_signed_in? %>
         <div class="like-<%= golf_course.id %> m-4">
           <%= render 'admin/likes/like', golf_course: golf_course %>
         </div>
+      <% else %>
+        <div></div>
       <% end %>
       <script>
         $('.average-review-rating').raty({

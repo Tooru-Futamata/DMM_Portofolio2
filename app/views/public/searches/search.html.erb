@@ -3,23 +3,22 @@
 <% if @golf_course_or_user == "1" %>
   <div class="col-md-8 offset-md-1">
     <h2>
-      <%= @search %>の検索結果
+      <strong><%= @search %></strong>の検索結果
     </h2>
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
-          <h2 class="index-title">ゴルフ場一覧</h2>
-          <p>(全<%#= @golf_courses.count %>件)</p>
+          <p>(全<%= @golf_courses.count %>件)</p>
         </div>
       </div>
       <div class="row">
         <% @golf_courses.each do |golf_course| %>
-          <div class="col-lg-3">
+          <div class="col-lg-4 my-3">
             <%= link_to public_public_golfcourse_path(golf_course.id) do %>
               <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
             <% end %>
-            <%= golf_course.name %><br>
-            <%= golf_course.prefecture %>
+            <strong><%= golf_course.name %></strong><br>
+            <%= golf_course.prefecture.name %>
             <%= golf_course.address %>
           </div>
         <% end %>

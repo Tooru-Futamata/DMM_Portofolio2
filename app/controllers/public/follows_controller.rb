@@ -1,6 +1,6 @@
 class Public::FollowsController < ApplicationController
 
-# before_action :set_user
+before_action :set_user
 
   def create
     following = current_user.follow(@user)
@@ -24,9 +24,9 @@ class Public::FollowsController < ApplicationController
     end
   end
 
-  # private
-  # def set_user
-  #   @user = User.find(params[:follow][:follow_id])
-  # end
+  private
+  def set_user
+    @user = User.find(params[:follow][:follow_id])
+  end
 
 end

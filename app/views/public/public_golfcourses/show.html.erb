@@ -9,6 +9,10 @@
     <%= render 'public/posts/index', golf_course: @golf_course, posts: @posts %>
   </div>
   <div class="row my-4">
-    <%= render 'public/posts/new', post: @post, golf_course: @golf_course %>
+    <% if user_signed_in? %>
+      <%= render 'public/posts/new', post: @post, golf_course: @golf_course %>
+    <% else %>
+      <%= link_to "レビューを投稿する", new_user_session_path, class: "btn btn-outline-success" %>
+    <% end %>
   </div>
 </div>
