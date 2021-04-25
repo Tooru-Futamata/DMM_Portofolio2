@@ -11,5 +11,4 @@ class Public::PublicGolfcoursesController < ApplicationController
     @posts = Post.all
     @like = Like.new
   end
-
 end

@@ -24,17 +24,18 @@ RSpec.describe Post, type: :model do
       # end
     end
   end
+
   describe 'アソシエーションのテスト' do
     context 'userモデルとの関係' do
       it 'N:1となっている' do
         expect(Post.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
+
     context 'golf_courseモデルとの関係' do
       it 'N:1となっている' do
         expect(Post.reflect_on_association(:golf_course).macro).to eq :belongs_to
       end
     end
   end
-
 end

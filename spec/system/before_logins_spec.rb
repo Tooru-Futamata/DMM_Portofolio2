@@ -63,7 +63,7 @@ describe 'ログイン前のテスト' do
     context '新規登録成功のテスト' do
       before do
         fill_in '名前', with: Faker::Lorem.characters(number: 5)
-        fill_in 'ユーザーID', with: Faker::Lorem.characters(number:10)
+        fill_in 'ユーザーID', with: Faker::Lorem.characters(number: 10)
         fill_in 'Email', with: Faker::Internet.email
         fill_in 'Password', with: 'password'
         fill_in 'Password confirmation', with: 'password'
@@ -141,4 +141,3 @@ describe 'ログインのテスト' do
     end
   end
 end
-

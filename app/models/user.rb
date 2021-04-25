@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,25 +15,25 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { in: 2..10 }
   validates :introduction, length: { maximum: 20 }
-  validates :name_id, length: { in: 2..10}, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\z/ }
+  validates :name_id, length: { in: 2..10 }, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\z/ }
 
   def follow(other_user)
     unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
+      relationships.find_or_create_by(follow_id: other_user.id)
     end
   end
 
   def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
+    relationship = relationships.find_by(follow_id: other_user.id)
     relationship.destroy if relationship
   end
 
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
 
   def already_liked?(golf_course)
-    self.likes.exists?(golf_course_id: golf_course.id)
+    likes.exists?(golf_course_id: golf_course.id)
   end
 
   def User.search(search, golf_course_or_user, how_search)
@@ -53,4 +52,3 @@ class User < ApplicationRecord
     end
   end
 end
-

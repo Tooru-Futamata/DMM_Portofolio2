@@ -32,18 +32,18 @@ class GolfCourse < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def avg_score
-    unless self.posts.empty?
-      posts.average(:rate).round(1)
-    else
+    if posts.empty?
       0.0
+    else
+      posts.average(:rate).round(1)
     end
   end
 
   def avg_score_percentage
-   unless self.posts.empty?
-     posts.average(:rate).round(1).to_f*100/5
-   else
-     0.0
-   end
+    if posts.empty?
+      0.0
+    else
+      posts.average(:rate).round(1).to_f * 100 / 5
+    end
   end
 end

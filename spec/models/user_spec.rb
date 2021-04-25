@@ -69,42 +69,41 @@ RSpec.describe 'userモデルのテスト', type: :model do
     end
   end
 end
-  describe 'アソシエーションのテスト' do
-    context 'postモデルとの関係' do
-      it '1:Nとなっている' do
-        expect(User.reflect_on_association(:posts).macro).to eq :has_many
-      end
-    end
 
-    context 'likeモデルとの関係' do
-      it '1:Nとなっている' do
-        expect(User.reflect_on_association(:likes).macro).to eq :has_many
-      end
-    end
-
-    context 'relationshipモデルとの関係' do
-      it '1:Nとなっている' do
-        expect(User.reflect_on_association(:relationships).macro).to eq :has_many
-      end
-    end
-
-    context 'reverse_of_relationshipモデルとの関係' do
-      it '1:Nとなっている' do
-        expect(User.reflect_on_association(:reverse_of_relationships).macro).to eq :has_many
-      end
-    end
-
-    context 'followingsモデルとの関係' do
-      it '1:Nとなっている' do
-        expect(User.reflect_on_association(:followings).macro).to eq :has_many
-      end
-    end
-
-    context 'followersモデルとの関係' do
-      it '1:Nとなっている' do
-        expect(User.reflect_on_association(:followers).macro).to eq :has_many
-      end
+describe 'アソシエーションのテスト' do
+  context 'postモデルとの関係' do
+    it '1:Nとなっている' do
+      expect(User.reflect_on_association(:posts).macro).to eq :has_many
     end
   end
 
+  context 'likeモデルとの関係' do
+    it '1:Nとなっている' do
+      expect(User.reflect_on_association(:likes).macro).to eq :has_many
+    end
+  end
 
+  context 'relationshipモデルとの関係' do
+    it '1:Nとなっている' do
+      expect(User.reflect_on_association(:relationships).macro).to eq :has_many
+    end
+  end
+
+  context 'reverse_of_relationshipモデルとの関係' do
+    it '1:Nとなっている' do
+      expect(User.reflect_on_association(:reverse_of_relationships).macro).to eq :has_many
+    end
+  end
+
+  context 'followingsモデルとの関係' do
+    it '1:Nとなっている' do
+      expect(User.reflect_on_association(:followings).macro).to eq :has_many
+    end
+  end
+
+  context 'followersモデルとの関係' do
+    it '1:Nとなっている' do
+      expect(User.reflect_on_association(:followers).macro).to eq :has_many
+    end
+  end
+end

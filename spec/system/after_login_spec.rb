@@ -5,8 +5,8 @@ describe 'ログイン後のテスト' do
   # 省略する前のコード@tweet = FactoryBot.create(:tweet)
   let!(:post) { build(:post, user_id: user.id) }
   let(:golf_course) { build(:golf_course) }
-  let(:region) { build(:region)}
-  let(:prefecture) { build(:prefecture)}
+  let(:region) { build(:region) }
+  let(:prefecture) { build(:prefecture) }
 
   before do
     visit new_user_session_path
@@ -202,7 +202,7 @@ describe 'ログイン後のテスト' do
       end
     end
 
-  # ボタン（要素が２つあるとのエラー）
+    # ボタン（要素が２つあるとのエラー）
     context 'ログアウト機能のテスト' do
       it 'ログアウトボタンが存在する' do
         click_link 'Log out'

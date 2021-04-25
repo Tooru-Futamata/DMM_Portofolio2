@@ -1,5 +1,5 @@
 class Admin::GolfCoursesController < ApplicationController
-  before_action :authenticate_admin!,only: [:create,:edit,:update,:index, :show, :new]
+  before_action :authenticate_admin!, only: [:create, :edit, :update, :index, :show, :new]
 
   def new
     @golf_course = GolfCourse.new
@@ -39,7 +39,7 @@ class Admin::GolfCoursesController < ApplicationController
   end
 
   def destroy
-    @golf_course= GolfCourse.find(params[:id])
+    @golf_course = GolfCourse.find(params[:id])
     if @golf_course.destroy
       redirect_to admin_golf_courses_path
     end
@@ -48,7 +48,6 @@ class Admin::GolfCoursesController < ApplicationController
   private
 
   def golf_course_params
-    params.require(:golf_course).permit(:name,:image, :region_id, :prefecture_id, :address, :latitude, :longitude )
+    params.require(:golf_course).permit(:name, :image, :region_id, :prefecture_id, :address, :latitude, :longitude)
   end
-
 end

@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
-      public_user_path(@user)
+    public_user_path(@user)
   end
 
   # GET /resource/sign_in
@@ -32,5 +32,4 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
 end

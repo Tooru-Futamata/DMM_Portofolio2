@@ -1,12 +1,10 @@
 class Public::PostsController < ApplicationController
-
   def new
     @post = Post.new
   end
 
   def index
     @posts = Post.all.page(params[:page]).per(6)
-
   end
 
   def show
@@ -16,7 +14,6 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.user_id = current_user.id
     @post.golf_course_id = params[:golf_course_id]
-
 
     # if @post.user == current_user
     #   render "edit"
@@ -58,6 +55,4 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content, :golf_course_id, :rate)
   end
-
 end
-

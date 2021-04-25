@@ -10,5 +10,4 @@ class PublicGolfcoursesControllerTest < ActionDispatch::IntegrationTest
     get public_golfcourses_show_url
     assert_response :success
   end
-
 end
