@@ -5,7 +5,7 @@ class HomesController < ApplicationController
               find(Post.
                     limit(4).
                     group(:rate).
-                    order('avg(rate) desc').
+                    order(Arel.sql('avg(rate) desc')).
                     pluck(:golf_course_id)
                   )
     @prefectures = Prefecture.all
