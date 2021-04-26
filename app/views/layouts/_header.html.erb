@@ -25,5 +25,6 @@
     <a><%= link_to "Courses", public_public_golfcourses_path, class: "fas fa-golf-ball p-2 text-white" %></a>
   </nav>
   <a><%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-light" %></a>
-  <a><%= link_to "Log in", new_user_session_path, class: "btn btn-outline-light" %></a>
+  <a><%= link_to "Log in", new_user_session_path, class: "btn btn-outline-light mx-2" %></a>
+  <a><%= link_to 'ゲストログイン', homes_guest_sign_in_path, method: :post, class: "btn btn-outline-light"%></a>
 <% end %>
