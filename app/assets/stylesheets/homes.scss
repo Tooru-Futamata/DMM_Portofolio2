@@ -20,7 +20,8 @@ h6 {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background-image: image-url("img/golf.jpeg") no-repeat center center;
+  background-image: image-url("img/golf.jpeg");
+  background-position: center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
