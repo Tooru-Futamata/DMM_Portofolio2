@@ -25,7 +25,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% prefectures.each do |prefecture| %>
-          　<%= link_to prefecture.name, public_rankings_path(prefecture_id: prefecture.id), class: "dropdown-item" %>
+          　<%= link_to prefecture.name, public_public_golfcourses_path(prefecture_id: prefecture.id), class: "dropdown-item" %>
           <% end %>
         </div>
       </div>
