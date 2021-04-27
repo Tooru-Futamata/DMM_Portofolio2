@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  belongs_to :user
-  belongs_to :golf_course
+  belongs_to :user, optional: true
+  belongs_to :golf_course, optional: true
 
   attachment :image
 

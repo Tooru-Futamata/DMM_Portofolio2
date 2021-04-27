@@ -66,3 +66,104 @@ Region.create!([
    {name:'沖縄県'},
    ])
 
+Admin.create!(
+  [
+    {
+      email: 'admin@gmail',
+      password: 'adminadmin'
+    }
+  ])
+
+User.create!(
+  [
+    {
+      email: 'sayo@gmail',
+      name: 'さよてぃん',
+      name_id: 'sayosayo',
+      profile_image: File.open('./app/assets/images/anpanman.jpeg'),
+      password: 'sayosayo'
+    },
+    {
+      email: 'ryota@gmail',
+      name: 'りょうた',
+      name_id: 'ryotaryota',
+      password: 'ryotaryota',
+      profile_image: File.open('./app/assets/images/shiro.jpeg')
+    },
+    {
+      email: 'haruka@gmail',
+      name: 'つか',
+      name_id: 'haruharu',
+      password: 'haruharu',
+      profile_image: File.open('./app/assets/images/dog.jpeg')
+    }
+  ]
+)
+
+GolfCourse.create!(
+  [
+    {
+      name: '北海道クラシックゴルフクラブ',
+      region_id: '1',
+      prefecture_id: '1',
+      address: '勇払郡安平町早来富岡406',
+      image: File.open('./app/assets/images/golf_courses/hokkaido.jpeg'),
+    },
+    {
+      name: '青森カントリー倶楽部',
+      region_id: '3',
+      prefecture_id: '2',
+      address: '青森市大別内葛野229',
+      image: File.open('./app/assets/images/golf_courses/aomori.jpeg'),
+    },
+    {
+     name: '沖縄カントリークラブ',
+      region_id: '2',
+      prefecture_id: '47',
+      address: '中頭郡西原町桃原１０９',
+      image: File.open('./app/assets/images/golf_courses/okinawa.jpeg'),
+    },
+    {
+      name: '熊谷ゴルフクラブ',
+      region_id: '4',
+      prefecture_id: '11',
+      address: '熊谷市石原1431',
+      image: File.open('./app/assets/images/golf_courses/saitama.jpeg'),
+    },
+    {
+      name: 'タラオカントリークラブ',
+      region_id: '5',
+      prefecture_id: '25',
+      address: '甲賀市信楽町多羅1',
+      image: File.open('./app/assets/images/golf_courses/tarao.jpeg'),
+    },
+    {
+      name: '愛媛ゴルフ倶楽部',
+      region_id: '6',
+      prefecture_id: '37',
+      address: '喜多郡内子町論田950',
+      image: File.open('./app/assets/images/golf_courses/ehime.jpeg'),
+    },
+    {
+      name: '夜須高原カントリークラブ',
+      region_id: '7',
+      prefecture_id: '40',
+      address: '朝倉郡筑前町曽根田１４１−２６',
+      image: File.open('./app/assets/images/golf_courses/yasukogen.jpeg'),
+    },
+    {
+      name: '筑紫野カントリークラブ',
+      region_id: '7',
+      prefecture_id: '40',
+      address: '筑紫野市山家２０１４−２２',
+      image: File.open('./app/assets/images/golf_courses/chikushino.jpeg'),
+    },
+    {
+      name: '小郡カンツリークラブ',
+      region_id: '7',
+      prefecture_id: '40',
+      address: '小郡市三沢１７８８',
+      image: File.open('./app/assets/images/golf_courses/ogori.jpeg'),
+    },
+  ]
+)

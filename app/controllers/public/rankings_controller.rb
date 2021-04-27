@@ -17,8 +17,16 @@ class Public::RankingsController < ApplicationController
                       order('avg(rate) desc').
                       pluck(:golf_course_id))
 
+    # @golf_courses = GolfCourse.all.each do |golf_course|
+    #   golf_course.average = golf_course.average_rate
+    # end
+
+
+    # @golf_courses = @golf_courses.sort_by { |golf_course| golf_course.average }
+
     @regions = Region.all
     @prefectures = Prefecture.all
+
   end
 
   def show

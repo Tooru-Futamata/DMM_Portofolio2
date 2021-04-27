@@ -1,8 +1,8 @@
 class GolfCourse < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
-  belongs_to :region
-  belongs_to :prefecture
+  belongs_to :region, optional: true
+  belongs_to :prefecture, optional: true
 
   attachment :image
 
@@ -10,7 +10,7 @@ class GolfCourse < ApplicationRecord
   validates :region_id, presence: true
   validates :prefecture_id, presence: true
   validates :address, presence: true
-  validates :image_id, presence: true
+  validates :image, presence: true
 
   def GolfCourse.search(search, golf_course_or_user, how_search)
     if golf_course_or_user == "1"
@@ -46,4 +46,11 @@ class GolfCourse < ApplicationRecord
       posts.average(:rate).round(1).to_f * 100 / 5
     end
   end
+
+  # attr_accessor :average
+
+
+  # def average_rate
+  #   self.posts.sum(:rate) / self.posts.length
+  # end
 end
