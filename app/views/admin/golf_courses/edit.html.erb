@@ -23,8 +23,13 @@
         <%= f.label :address, '住所' %>
         <%= f.text_field :address, autofocus: true, autocomplete: '住所', class: "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.submit 'ゴルフ場登録', class: 'btn btn-primary btn-block' %>
+      <div class="form-group row justify-content-end">
+          <div class="col-md-6 text-right">
+            <%= f.submit '登録', class:"btn btn-success" %>
+          </div>
+          <div class="col-md-6">
+            <%= link_to "戻る", :back, class:"btn btn-outline-primary" %>
+          </div>
       </div>
     <% end %>
   </div>
