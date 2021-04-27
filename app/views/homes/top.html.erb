@@ -11,17 +11,50 @@
       <div class="col-xl-9 mx-auto">
         <h1 class="mb-3"><strong>FavoriteGolfCourse</strong></h1>
       </div>
-      <h5 class="col-xl-8 mx-auto text-white text-center">
-        FavoriteGolfCourseは、あなたが行きたいゴルフ場が簡単に見つかります。<br>
-        どんな特徴のあるコースなのか、人気があるコースはどのゴルフ場か、<br>
-        ゴルファー達の経験を元にしたレビューから、すばやく見つけてみませんか？<br>
-      </h5>
+      <!--<h5 class="col-xl-8 mx-auto text-white text-center">-->
+      <!--  FavoriteGolfCourseは、あなたが行きたいゴルフ場が簡単に見つかります。<br>-->
+      <!--  どんな特徴のあるコースなのか、人気があるコースはどのゴルフ場か、<br>-->
+      <!--  ゴルファー達の経験を元にしたレビューから、すばやく見つけてみませんか？<br>-->
+      <!--</h5>-->
     </div>
   </div>
 </header>
+<div class="features">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2 class="title m-4"><strong>FavoriteGolfCourse</strong>とは？</h2>
+      <h4 class="title mb-4">
+        FavoriteGolfCourseは、あなたが行きたいゴルフ場が簡単に見つかります。<br>
+        どんな特徴のあるコースなのか、人気があるコースはどのゴルフ場か、<br>
+        ゴルファー達の経験を元にしたレビューから、すばやく見つけてみませんか？<br>
+      </h4>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-sm-4 feature text-center">
+        <span aria-hidden="true" class="glyphicon glyphicon-check" style="font-size: 40px"></span>
+        <i class="far fa-comment" style="font-size: 40px"></i>
+        <h3 class="feature-title" style="font-size: 20px"><strong>リアルな口コミ</strong></h3>
+        <p>✔	ゴルファーによるリアルな口コミでゴルフ場選びをサポート</p>
+      </div>
+      <div class="col-lg-4 col-sm-4 feature text-center">
+        <span aria-hidden="true" class="glyphicon glyphicon-check" style="font-size: 40px"></span>
+        <i class="fas fa-search" style="font-size: 40px"></i>
+        <h3 class="feature-title" style="font-size: 20px"><strong>探しやすい</strong></h3>
+        <p>✔	気になるゴルフ場を検索フォームやランキングから検索可能</p>
+      </div>
+      <div class="col-lg-4 col-sm-4 feature text-center">
+        <span aria-hidden="true" class="glyphicon glyphicon-check" style="font-size: 40px"></span>
+        <i class="far fa-image" style="font-size: 40px"></i>
+        <h3 class="feature-title" style="font-size: 20px"><strong>見やすいレイアウト</strong></h3>
+        <p>✔	PCやスマートフォンどちらからでも見やすい設計</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <div class="container my-4">
   <div class="region">
-    <h2 class="title mb-3">
+    <h2 class="title my-4">
       <strong>地方からゴルフ場を探す</strong>
     </h2>
     <div class="row mx-auto">
@@ -33,26 +66,12 @@
     </div>
   </div>
 </div>
-<!--<div class="container my-4">-->
-<!--  <div class="region">-->
-<!--    <h2 class="title mb-3">-->
-<!--      <strong>県名からゴルフ場を探す</strong>-->
-<!--    </h2>-->
-<!--    <div class="row mx-auto">-->
-      <!--<div class="d-flex justify-content-center col-md-12">-->
-<!--        <%# @prefectures.each do |prefecture| %>-->
-<!--        　<%#= link_to prefecture.name, public_rankings_path(prefecture_id: prefecture.id), class: "btn btn-outline-success"  %>-->
-<!--        <%# end %>-->
-      <!--</div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<div class="container my-3">
+<div class="container my-4">
   <div class="ranking mx-auto">
-    <h2 class="mb-3"><strong>ゴルフ場ランキング</strong></h2>
+    <h2 class="my-4"><strong>ゴルフ場ランキング</strong></h2>
     <div class="row">
       <% @golf_courses.each.with_index(1) do |golf_course, i| %>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-sm-3 p-1">
           <strong>第<%= i %>位</strong><br>
           <%= link_to public_public_golfcourse_path(golf_course.id) do %>
             <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>

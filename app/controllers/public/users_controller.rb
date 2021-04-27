@@ -6,7 +6,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.all.page(params[:page]).per(6)
-    likes = Like.where(user_id: current_user.id).pluck(:golf_course_id) # ログイン中のユーザーのお気に入りのgolfcourse_idカラムを取得
+    likes = Like.where(user_id: @user.id).pluck(:golf_course_id) # ログイン中のユーザーのお気に入りのgolfcourse_idカラムを取得
     @like_list = GolfCourse.find(likes) # gole_coursesテーブルから、お気に入り登録済みのレコードを取得
   end
 

@@ -24,7 +24,7 @@
           県名で絞る
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <% @prefectures.each do |prefecture| %>
+          <% prefectures.each do |prefecture| %>
           　<%= link_to prefecture.name, public_rankings_path(prefecture_id: prefecture.id), class: "dropdown-item" %>
           <% end %>
         </div>
@@ -44,4 +44,16 @@
     <% end %>
   </div>
 
-<!--<div class= "paginate col-lg-3 mx-auto"><%#= paginate @golf_courses %></div>-->
+<div class= "paginate col-lg-3 mx-auto"><%= paginate @golf_courses %></div>
+<%# if i == 1 %>
+  <%# prev = golf_course.avg_score %>
+<%# end %>
+<%# if golf_course.avg_score != prev %>
+  <%# j = i + rank  %>
+  <!--<strong>第<%#= j %>位</strong><br>-->
+  <%# prev = golf_course.avg_score %>
+<%# else %>
+  <%# prev = golf_course.avg_score %>
+  <!--<strong>第<%#= j %>位</strong><br>-->
+<%# end %>
+

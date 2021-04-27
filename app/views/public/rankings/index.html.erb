@@ -2,11 +2,11 @@
 <p class="alert"><%= alert %></p>
 <div class="container">
   <div class="row">
-    <div class="col-lg-5">
+    <div class="col-lg-5 col-sm-6">
       <h2 class="index-title">ゴルフ場ランキング</h2>
       <p>(全<%= @golf_courses.count %>件)</p>
     </div>
-    <div class="col-lg-4 text-right">
+    <div class="col-lg-4 col-sm-3 text-right">
       <div class="btn-group dropright">
         <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           地方で絞る
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-sm-3">
       <div class="btn-group dropright">
         <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           県名で絞る
@@ -31,10 +31,13 @@
       </div>
     </div>
   </div>
+  <% rank = (params[:page].to_i - 1) * 8 %> 　<!--ランキングをページネーションでも機能させる変数-->
+  <%# prev = 0 %>　                    <!--前の順位の評点を一時的に保存する変数-->
+  <%# j = 1 %>            <!--順位を示す変数-->
   <div class="row">
     <% @golf_courses.each.with_index(1) do |golf_course, i| %>
       <div class="col-lg-3 flex">
-        <strong>第<%= i %>位</strong><br>
+        <strong>第<%= i + rank %>位</strong><br>
         <%= link_to public_public_golfcourse_path(golf_course.id) do %>
           <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
         <% end %>
@@ -45,4 +48,10 @@
     <% end %>
   </div>
 </div>
-<!--<div class= "paginate col-lg-3 mx-auto"><%#= paginate @golf_courses %></div>-->
+<div class= "paginate col-lg-3 mx-auto"><%= paginate @golf_courses %></div>
+
+<!--prev と f.score が同じならば-->
+<!--  rankを表示する-->
+<!--でなければ-->
+<!--  rank = rank + 1 //ランクを1つ進める-->
+<!--  prev = f.score // 今回のスコアを覚えておいて、次回の比較に備える-->

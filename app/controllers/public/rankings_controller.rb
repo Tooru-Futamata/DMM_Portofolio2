@@ -11,20 +11,19 @@ class Public::RankingsController < ApplicationController
       @golf_courses = GolfCourse.all
     end
 
-    @golf_courses = @golf_courses.
+    #ランキング機能（昇順）
+    golf_courses = @golf_courses.
       find(Post.where(golf_course_id: @golf_courses.ids).
-                      group(:rate).
+                      group(:golf_course_id).
                       order('avg(rate) desc').
                       pluck(:golf_course_id))
 
-    # @golf_courses = GolfCourse.all.each do |golf_course|
-    #   golf_course.average = golf_course.average_rate
-    # end
+    params[:page] ||= 1
+    @golf_courses = Kaminari.paginate_array(golf_courses).page(params[:page]).per(8)
 
-
-    # @golf_courses = @golf_courses.sort_by { |golf_course| golf_course.average }
-
+    #地方で絞るボタン
     @regions = Region.all
+    #県名で絞るボタン
     @prefectures = Prefecture.all
 
   end

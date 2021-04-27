@@ -47,10 +47,4 @@ class GolfCourse < ApplicationRecord
     end
   end
 
-  # attr_accessor :average
-
-
-  # def average_rate
-  #   self.posts.sum(:rate) / self.posts.length
-  # end
 end
