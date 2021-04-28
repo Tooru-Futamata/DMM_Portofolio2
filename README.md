@@ -44,6 +44,9 @@ https://docs.google.com/spreadsheets/d/1uTcRCtLYN8S174jrzxAstAS1phlSohkUcoHqUFI4
 - 認証関連(ログイン, 管理者ユーザー)
 - ユーザー関連（フォロー・フォロワー）
 - アイテム関連（お気に入り登録, ランキング表示）
+- Javascript(お気に入り非同期通信)
+- 単体テスト（RSpec)
+- リーダブルコード（rubocop)
 
 
 ## 開発環境
