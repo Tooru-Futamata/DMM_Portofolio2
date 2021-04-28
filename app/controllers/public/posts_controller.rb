@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  before_action :set_user, only: [:destroy, :edit, :update]
+  before_action :set_post, only: [:destroy, :edit, :update]
 
   def new
     @post = Post.new
@@ -58,7 +58,7 @@ class Public::PostsController < ApplicationController
     params.require(:post).permit(:title, :content, :golf_course_id, :rate)
   end
 
-  def set_user
+  def set_post
     @post = Post.find(params[:id])
   end
 end
