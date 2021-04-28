@@ -33,10 +33,10 @@
               </h4>
               <p><%= post.content %></p>
               <% if post.user == current_user %>
-                <%= link_to edit_public_user_path(post), class:"btn btn-sm btn-success", method: :get do %>
+                <%= link_to edit_public_post_path(post), class:"btn btn-sm btn-success", method: :get do %>
                   レビューを編集
                 <% end %>
-                <%= link_to public_user_path(post), class:"btn btn-sm btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                <%= link_to public_post_path(post), class:"btn btn-sm btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
                   レビューを削除
                 <% end %>
               <% end %>

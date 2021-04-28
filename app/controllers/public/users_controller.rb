@@ -1,7 +1,7 @@
 class Public::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :destroy, :followings, :followers]
+  before_action :set_user, only: [:show, :destroy, :followings, :followers, :edit, :update]
   # before_action :require_user_logged_in, only: [:edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  # before_action :correct_user, only: [:edit, :update]
   # before_action :admin_user, only: :destroy
 
   def index
@@ -22,7 +22,7 @@ class Public::UsersController < ApplicationController
     if @user == current_user
       render "edit"
     else
-      redirect_to public_user_path(current_user.id)
+      redirect_to public_user_path(@user.id)
     end
   end
 
@@ -48,10 +48,10 @@ class Public::UsersController < ApplicationController
     params.require(:user).permit(:name, :introduction, :profile_image, :email)
   end
 
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(current_user) unless @user == current_user
-  end
+  # def correct_user
+  #   @user = User.find(params[:id])
+  #   redirect_to(current_user) unless @user == current_user
+  # end
 
   def set_user
     @user = User.find(params[:id])
