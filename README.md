@@ -35,15 +35,15 @@ https://github.com/Sayo-Shiozuka/FavoriteGolfCourse/files/6254028/ER.drawio.pdf
 https://docs.google.com/spreadsheets/d/1uTcRCtLYN8S174jrzxAstAS1phlSohkUcoHqUFI4XME/edit#gid=1773513600
 
 ## 使用機能と技術
-画像アップロード(mini_magick)
-ページネーション(kaminari)
-検索(ransack)
-API(GoogleMapAPI)
-星評価機能(jQuery Raty)
-デザイン(Bootstrap, Sass)
-認証関連(ログイン, 管理者ユーザー)
-ユーザー関連（フォロー・フォロワー）
-アイテム関連（お気に入り登録, ランキング表示）
+- 画像アップロード(mini_magick)
+- ページネーション(kaminari)
+- 検索(ransack)
+- API(GoogleMapAPI)
+- 星評価機能(jQuery Raty)
+- デザイン(Bootstrap, Sass)
+- 認証関連(ログイン, 管理者ユーザー)
+- ユーザー関連（フォロー・フォロワー）
+- アイテム関連（お気に入り登録, ランキング表示）
 
 
 ## 開発環境
