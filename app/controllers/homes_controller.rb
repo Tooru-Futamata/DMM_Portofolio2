@@ -1,6 +1,8 @@
 class HomesController < ApplicationController
   def top
+    # 地方名から絞る
     @regions = Region.all
+    # ランキング機能
     @golf_courses = GolfCourse.
       find(Post.
                     limit(4).
