@@ -2,30 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .btn-unlike {
-//   background-color: #FFFFFF;
-//   color: #FFCC33;
-//   border: 1px solid #FFCC33;
-//   border-radius: 30px;
+.unlike {
+background-color: #FFFFFF;
+ color: #FFCC33;
+ border: 1px solid #FFCC33;
+border-radius: 30px;
 
-//   &:hover {
-//     background-color: #FFCC33;
-//     border: 1px solid #FFFFFF;
-//     color: #FFFFFF;
-//     opacity: 2.0;
-//   }
-// }
+ &:hover {
+background-color: #FFCC33;
+border: 1px solid #FFFFFF;
+color: #FFFFFF;
+opacity: 2.0;
+ }
+}
 
-// .btn-like {
-//   background-color: #FFFFFF;
-//   color: #FFCC33;
-//   border: 1px solid #FFCC33;
-//   border-radius: 30px;
+.like {
+background-color: #FFCC33;
+color: #FFFFFF;
+border: 1px solid #FFCC33;
+border-radius: 30px;
 
-//   &:hover {
-//     background-color: #FFCC33;
-//     border: 1px solid #FFFFFF;
-//     color: #FFFFFF;
-//     opacity: 2.0;
-//   }
-// }
+&:hover {
+background-color: #FFCC33;
+border: 1px solid #FFFFFF;
+color: #FFFFFF;
+opacity: 2.0;
+   }
+ }
