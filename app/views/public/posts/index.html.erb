@@ -15,6 +15,7 @@
           <h4 class="mb-3">
             評価：<%= post.rate %>点|<%= post.title %>
           </h4>
+          <span class="sentiment-score">本文の感情分析スコア<%= post.score %></span>
           <p><%= post.content %></p>
           <% if post.user == current_user %>
             <%= link_to edit_public_post_path(post), class:"btn btn-sm btn-success", method: :get do %>
