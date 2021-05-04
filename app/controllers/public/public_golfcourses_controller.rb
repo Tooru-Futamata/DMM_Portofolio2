@@ -11,8 +11,10 @@ class Public::PublicGolfcoursesController < ApplicationController
       @golf_courses = GolfCourse.all.page(params[:page]).per(8)
     end
 
-    @regions = Region.all #地方名で絞るボタン
-    @prefectures = Prefecture.all　#県名で絞るボタン
+    #地方名で絞るボタン
+    @regions = Region.all
+    #県名で絞るボタン
+    @prefectures = Prefecture.all
   end
 
   def show
