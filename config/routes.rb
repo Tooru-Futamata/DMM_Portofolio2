@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resources :rankings, only: [:index, :show]
     resources :public_golfcourses, only: [:index, :show]
     get 'search', to: 'searches#search'
+    get 'searches', to: 'searches#index'
   end
 
   namespace :admin do
