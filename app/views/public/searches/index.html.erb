@@ -1,5 +1,10 @@
-
-<style>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<div class="container">
+  <div class="row1">
+    <h5 class="googlemap">★<strong>マップ上にピンを刺すと周辺のゴルフ場がでます</strong></h2><br>
+  </div>
+  <style>
 #gmap {
   height: 400px;
   width: 600px;
@@ -82,6 +87,7 @@ function createMarker(place) {
     animation: google.maps.Animation.DROP
   });
 
+
   // infowindowインスタンス生成
   infowindow = new google.maps.InfoWindow();
 
@@ -95,6 +101,13 @@ function createMarker(place) {
 // callbackで周辺検索したら発火
 function callback(results, status) {
   // 周辺家検索結果からマーカー製成
+if (status === google.maps.DirectionsStatus.OK) {
+    createMarker(results[0]);
+    // 周辺検索結果のplace_idを使用してfields内の項目を検索
+    let request = {
+      placeId: results[0].place_id,
+      fields: ["name", "formatted_address", "photos", "rating", "formatted_phone_number", "website", "user_ratings_total"]
+    };
 
   console.log(results, status);
   for (let i = 0; i < results.length; i++) {
@@ -108,3 +121,5 @@ function callback(results, status) {
 <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%= ENV['API_KEY']%>&callback=initMap&libraries=places" async defer></script><!-- API_KEYの部分は取得した APIキーで置き換えます -->
 <!--//マーカを削除するボタン-->
 <!--<button class ="gmap_btn"  id="del" onclick="deleteMakers();"/>マーカーを削除する</button>-->
+<p></p>
+</div>
