@@ -1,5 +1,5 @@
 # FavoriteGolfCourse
-<img src="https://user-images.githubusercontent.com/76867260/113237558-06d7c400-92e2-11eb-9379-7095f985d246.jpg" width="320">
+<img src="https://user-images.githubusercontent.com/76867260/113237558-06d7c400-92e2-11eb-9379-7095f985d246.jpg" width="400">
 
 ## アプリケーションURL
 http://3.210.139.112/
