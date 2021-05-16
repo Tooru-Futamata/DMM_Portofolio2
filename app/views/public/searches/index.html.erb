@@ -1,3 +1,4 @@
+
 <style>
 #gmap {
   height: 400px;
@@ -10,6 +11,7 @@
 <div id="gmap"></div>
 
 <script>
+var markers = []
   var map;
   function initMap() {
     let target = document.getElementById('gmap');
@@ -47,13 +49,28 @@
 
         service = new google.maps.places.PlacesService(map);
 
-        btnReplay();
-        $("#btn-replay").on("click",markerDelete);
+      //   function deleteMakers() {
+    		//   if(marker != null){
+    		//     marker.setMap(null);
+    		//   }
+    		//   marker = null;
+      // 	}
+
+      // btnReplay();
+      //   $("#btn-replay").on("click",markerDelete);
 
         // 周辺検索
-        nearbySearch(service, e.latLng, 10000, ['restaurant'],'');
-        nearbySearch2(service, e.latLng, 10000, [], '観光スポット');
-        nearbySearch3(service, e.latLng, 10000, ['spa'],'');
+        nearbySearch(service, e.latLng, 30000, ['ゴルフ場'],'');
+
+        // 周辺検索の関数
+        function nearbySearch(service, latLng, radius, type, name){
+          service.nearbySearch({
+            location: latLng,
+            radius: radius,
+            type: type,
+            name: 'ゴルフ場'
+          }, callback);
+        }
       }
     });
   }
@@ -76,274 +93,18 @@ function createMarker(place) {
   markers.push(markerPlace);
 }
 // callbackで周辺検索したら発火
-// function callback(results, status) {
-//   // 周辺家検索結果からマーカー製成
+function callback(results, status) {
+  // 周辺家検索結果からマーカー製成
 
-//   if (status === google.maps.DirectionsStatus.OK) {
-//     createMarker(results[0]);
-//     // 周辺検索結果のplace_idを使用してfields内の項目を検索
-//     let request = {
-//       placeId: results[0].place_id,
-//       fields: ["name", "formatted_address", "photos", "rating", "formatted_phone_number", "website", "user_ratings_total"]
-//     };
-
-//     service.getDetails(request, (place, status1) => {
-
-//       // html要素を指定
-//       let photo = document.getElementById('photo');
-//       let image = $('#photo').children();
-//       let mainTag = document.getElementById('main');
-//       let mainImage = $('#main').children();
-//       let name = document.getElementById('name');
-//       // let likeTag = document.getElementById('name-likes')
-//       // let like = $('#name-likes').children();
-//       let star1 = document.getElementById('star1');
-//       let star2 = document.getElementById('star2');
-//       let star3 = document.getElementById('star3');
-//       let star4 = document.getElementById('star4');
-//       let star5 = document.getElementById('star5');
-//       let noStar = document.getElementById('no-star');
-//       let rate = document.getElementById("rate");
-//       let reviews = document.getElementById("reviews");
-//       let address = document.getElementById("address");
-//       let number = document.getElementById("phone_number");
-//       let website = document.getElementById('website');
-//       // let level = document.getElementById("level");
-//       // let days = document.getElementById('days');
-
-
-//       if (status === google.maps.DirectionsStatus.OK) {
-//         // 周辺検索した結果、placeがnullだったら前に表示していた項目を全て削除
-//         if (place === null) {
-//           image.remove('img');
-//           mainImage.remove('img');
-//           name.textContent = "";
-//           star1.classList.remove("fa-star");
-//           star2.classList.remove("fa-star");
-//           star3.classList.remove("fa-star");
-//           star4.classList.remove("fa-star");
-//           star5.classList.remove("fa-star");
-//           star1.classList.remove("fa-star-half");
-//           star2.classList.remove("fa-star-half");
-//           star3.classList.remove("fa-star-half");
-//           star4.classList.remove("fa-star-half");
-//           star5.classList.remove("fa-star-half");
-//           noStar.textContent = "";
-//           rate.textContent = "";
-//           reviews.textContent = "";
-//           address.textContent = "";
-//           number.textContent = "";
-//           website.textContent = "";
-//           // level.textContent = "";
-//           // days.textContent = "";
-
-//           name.textContent = "付近には施設が見つかりませんでした。";
-//         } else {
-
-//           if (place.photos !== null) {
-//             // まず前に表示していた画像を削除
-//             image.remove('img');
-//             mainImage.remove('img');
-//             // 画像の分だけphotoクラスのimgタグを製成し写真を表示
-//             let bigImage = document.createElement('img');
-//             bigImage.setAttribute('id', 'main-image');
-//             mainTag.appendChild(bigImage);
-//             bigImage.src = place.photos[0].getUrl();
-
-
-//             for (let i = 0; i < 5; i++) {
-//               let photos = document.createElement('img');
-//               photos.classList.add('photo');
-//               photos.src = place.photos[i].getUrl();
-//               photo.appendChild(photos);
-//               document.getElementById(`spot_src${i}`).value = photos.src;
-//             }
-//           } else {
-//             image.remove('img');
-//             mainImage.remove('img');
-//           }
-//           changeImage();
-//           // 周辺検索した結果の名前を表示
-//           if (place.name !== null) {
-//             name.textContent = place.name;
-//             document.getElementById("spot_name").value = name.textContent;
-//           } else {
-//             name.textContent = "";
-//           }
-
-//           if (place.rating !== null) {
-//             // 前に表示していた星を削除
-//             star1.classList.remove("fa-star");
-//             star2.classList.remove("fa-star");
-//             star3.classList.remove("fa-star");
-//             star4.classList.remove("fa-star");
-//             star5.classList.remove("fa-star");
-
-//             star1.classList.remove("fa-star-half");
-//             star2.classList.remove("fa-star-half");
-//             star3.classList.remove("fa-star-half");
-//             star4.classList.remove("fa-star-half");
-//             star5.classList.remove("fa-star-half");
-//             // ratingを?/5で表示
-//             let rating = place.rating;
-//             rate.textContent = rating + ' /５';
-//             // 表示する星の数の条件分岐
-//             if (5.0 <= rating || rating >= 4.8){
-//               star1.classList.add("fa-star");
-//               star2.classList.add("fa-star");
-//               star3.classList.add("fa-star");
-//               star4.classList.add("fa-star");
-//               star5.classList.add("fa-star");
-//             } else if (4.7 <= rating || rating >=  4.3) {
-//               star1.classList.add("fa-star");
-//               star2.classList.add("fa-star");
-//               star3.classList.add("fa-star");
-//               star4.classList.add("fa-star");
-//               star5.classList.add("fa-star-half");
-//             } else if (4.2 <= rating || rating >= 3.8) {
-//               star1.classList.add("fa-star");
-//               star2.classList.add("fa-star");
-//               star3.classList.add("fa-star");
-//               star4.classList.add("fa-star");
-//             } else if (3.7 <= rating || rating >= 3.3) {
-//               star1.classList.add("fa-star");
-//               star2.classList.add("fa-star");
-//               star3.classList.add("fa-star");
-//               star4.classList.add("fa-star-half");
-//             } else if (3.2 <= rating || rating >= 2.8) {
-//               star1.classList.add("fa-star");
-//               star2.classList.add("fa-star");
-//               star3.classList.add("fa-star");
-//             } else if (2.7 <= rating || rating >= 2.3) {
-//               star1.classList.add("fa-star");
-//               star2.classList.add("fa-star");
-//               star3.classList.add("fa-star-half");
-//             } else if (2.2 <= rating || rating >= 1.8) {
-//               star1.classList.add("fa-star");
-//               star2.classList.add("fa-star");
-//             } else if (1.7 <= rating || rating >= 1.3) {
-//               star1.classList.add("fa-star");
-//               star2.classList.add("fa-star-half");
-//             } else if (1.2 <= rating || rating >= 0.8) {
-//               star1.classList.add("fa-star");
-//             } else if (0.7 <= rating || rating >= 0.3) {
-//               star1.classList.add("fa-star-half");
-//             } else {
-//               rate.textContent = "";
-//               noStar.textContent = "評価はありません";
-//             }
-//           } else {
-//             rate.textContent = "";
-//             noStar.textContent = "評価はありません";
-//           }
-//           // レビューの件数を表示
-//           if (place.user_rating_total !== null) {
-//             reviews.textContent = "クチコミ件数 " + place.user_ratings_total + " 件";
-//           } else {
-//             reviews.textContent = "";
-//           }
-//           // 住所の表示。"日本、","Unnamed load"の非表示
-//           if (place.formatted_address !== null) {
-//             if (place.formatted_address.indexOf('日本、' !== -1 && place.formatted_address.indexOf('Unnamed load') !== -1)){
-//               address.textContent = place.formatted_address.slice(3);
-//               address.textContent.slice(0, -12);
-//               document.getElementById( "spot_address" ).value = address.textContent;
-//             } else if (place.formatted_address.indexOf('日本、') !== -1) {
-//               address.textContent = place.formatted_address.slice(3);
-//               document.getElementById( "spot_address" ).value = address.textContent;
-//             } else {
-//               address.textContent = place.formatted_address;
-//               document.getElementById( "spot_address" ).value = address.textContent;
-//             }
-//           } else {
-//             address.textContent = "";
-//           }
-//           // 電話番号の表示
-//           if (place.formatted_phone_number !== null) {
-//             number.textContent = "ＴＥＬ：" + place.formatted_phone_number;
-//             document.getElementById( "spot_phone_number" ).value = place.formatted_phone_number;
-//           } else {
-//             number.textContent = "";
-//           }
-
-//           //   // 価格帯表示
-//           // if (place.price_level != null) {
-//           //   if (place.price_level === 0 ) {
-//           //     level.textContent = "";
-//           //   } else if (place.price_level === 1) {
-//           //     level.textContent = "予算：〜¥1,000";
-//           //   } else if (place.price_level === 2) {
-//           //     level.textContent = "予算：¥1,000 〜 ¥2,000";
-//           //   } else if (place.price_level === 3) {
-//           //     level.textContent = "予算：2,000 〜 ¥4,000";
-//           //   } else if (place.price_level === 4) {
-//           //     level.textContent = "予算：¥4,000 〜";
-//           //   } else {
-//           //     level.textContent = "";
-//           //   }
-//           // } else {
-//           //   level.textContent = "";
-//           // }
-//           // ウェブサイトのリンク表示
-//           if (place.website !== null) {
-//             website.textContent = place.website;
-//             website.href = website.textContent;
-//             document.getElementById( "spot_website" ).value = website;
-//           } else {
-//             website.textContent = "";
-//           // }
-//           // // 営業時間帯表示
-//           // if (place.opening_hours !== null) {
-//           //   if (days.textContent !== null) {
-//           //     days.textContent = "";
-//           //   }
-//           //   // 営業時間帯のある数だけp要素を追加
-//           //   if (place.opening_hours.weekday_text != null) {
-//           //     for (let i = 0; i < place.opening_hours.weekday_text.length; i++) {
-//           //       let day = document.createElement('p');
-//           //       day.textContent = place.opening_hours.weekday_text[i];
-//           //       days.appendChild(day);
-//                 // document.getElementById( "place_open" ).value = place.opening_hours.weekday_text[i];
-//         //       }
-//         //     }
-//         //   } else {
-//         //     days.textContent = "";
-//           }
-//             btnCreate();
-//         }
-//       } else {
-//         // もしplaceのstatusがOKじゃなかったら全削除
-//         image.remove('img');
-//         mainImage.remove('img');
-//         name.textContent = "";
-//         star1.classList.remove("fa-star");
-//         star2.classList.remove("fa-star");
-//         star3.classList.remove("fa-star");
-//         star4.classList.remove("fa-star");
-//         star5.classList.remove("fa-star");
-//         star1.classList.remove("fa-star-half");
-//         star2.classList.remove("fa-star-half");
-//         star3.classList.remove("fa-star-half");
-//         star4.classList.remove("fa-star-half");
-//         star5.classList.remove("fa-star-half");
-//         noStar.textContent = "";
-//         rate.textContent = "";
-//         reviews.textContent = "";
-//         address.textContent = "";
-//         number.textContent = "";
-//         website.textContent = "";
-//         // level.textContent = "";
-//         // days.textContent = "";
-
-
-//         name.textContent = "付近には施設が見つかりませんでした。";
-//       }
-//     });
-//   }
-// }
+  console.log(results, status);
+  for (let i = 0; i < results.length; i++) {
+    createMarker(results[i]);
+  }
+  return;
+}
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%= ENV['API_KEY']%>&callback=initMap&libraries=places" async defer></script><!-- API_KEYの部分は取得した APIキーで置き換えます -->
 
-</body>
-</html>
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%= ENV['API_KEY']%>&callback=initMap&libraries=places" async defer></script><!-- API_KEYの部分は取得した APIキーで置き換えます -->
+<!--//マーカを削除するボタン-->
+<!--<button class ="gmap_btn"  id="del" onclick="deleteMakers();"/>マーカーを削除する</button>-->
