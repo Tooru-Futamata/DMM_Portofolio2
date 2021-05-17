@@ -108,6 +108,7 @@ if (status === google.maps.DirectionsStatus.OK) {
       placeId: results[0].place_id,
       fields: ["name", "formatted_address", "photos", "rating", "formatted_phone_number", "website", "user_ratings_total"]
     };
+  }
 
   console.log(results, status);
   for (let i = 0; i < results.length; i++) {
