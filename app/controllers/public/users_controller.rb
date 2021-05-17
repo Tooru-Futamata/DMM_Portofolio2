@@ -15,6 +15,9 @@ class Public::UsersController < ApplicationController
     likes = Like.where(user_id: @user.id).pluck(:golf_course_id) # ログイン中のユーザーのお気に入りのgolfcourse_idカラムを取得
     @like_list = GolfCourse.find(likes) # gole_coursesテーブルから、お気に入り登録済みのレコードを取得
 
+    # if params[:name].present?
+    #   @users = @users.get_by_name params[:name]
+    # end
 
   end
 

@@ -28,6 +28,12 @@ class GolfCourse < ApplicationRecord
     end
   end
 
+  # # ユーザーが投稿したゴルフ場名による絞り込み
+  #   scope :get_by_name, ->(name) {
+  #   where("name like ?", "%#{name}%")
+  #   }
+
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
