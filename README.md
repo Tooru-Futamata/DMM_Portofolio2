@@ -55,5 +55,5 @@ https://docs.google.com/spreadsheets/d/1uTcRCtLYN8S174jrzxAstAS1phlSohkUcoHqUFI4
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## フリー素材
-https://pixabay.com/ja/
+## 使用素材
+- pixabay(https://pixabay.com/ja/)
