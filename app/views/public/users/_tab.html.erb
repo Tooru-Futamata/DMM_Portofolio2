@@ -44,10 +44,10 @@
           </div>
           <div class="col-lg-3 col-sm-3">
             <%= link_to public_public_golfcourse_path(post.golf_course.id) do %>
-              <%= attachment_image_tag post.golf_course, :image, size: "150x100", fallback: "no_image.jpeg" %>
+              <%= attachment_image_tag post.golf_course, :image, size: "180x120", fallback: "no_image.jpeg" %>
             <% end %>
           </div>
-          <div class="col-lg-4 col-sm-5">
+          <div class="col-lg-5 col-sm-5">
             <%= post.golf_course.name %><br>
             <%= post.golf_course.prefecture.name %>
             <%= post.golf_course.address %>
@@ -67,11 +67,11 @@
         <div class="d-flex my-2">
           <% if like_list.present? %>
             <% like_list.each do |golf_course| %>
-              <div class="col-lg-4 d-flex">
+              <div class="col-lg-4 col-sm-5 d-flex">
                 <div class="like-golf">
                   <div class="course-header mx-auto">
                     <%= link_to public_public_golfcourse_path(golf_course.id) do %>
-                      <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
+                      <%= attachment_image_tag golf_course, :image, size: "180x120", fallback: "no_image.jpeg" %><br>
                     <% end %>
                   </div>
                   <div class="course-info mx-auto">
@@ -83,7 +83,7 @@
                       <p class="average-score-display pl-3 ">
                         <strong><%= golf_course.avg_score %></strong>
                       </p>
-                      <div class="post-count pt-1 pl-2">（<%= golf_course.posts.count %>件）</div>
+                      <div class="post-count pt-1 pl-1">（<%= golf_course.posts.count %>件）</div>
                     </div>
                   </div>
                 </div>
