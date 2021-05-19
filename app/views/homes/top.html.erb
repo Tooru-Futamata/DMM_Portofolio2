@@ -51,146 +51,30 @@
     </div>
   </div>
 </div>
-</div>
 <div class="container my-4">
   <div class="region">
-    <h2 class="title my-4">
-      <strong>地方からゴルフ場を探す</strong>
-    </h2>
     <div class="row mx-auto">
-      <div class="d-flex justify-content-center col-md-12">
+      <div class="justify-content-center col-lg-6">
+        <h2 class="title my-4">
+          <strong>地方からゴルフ場を探す</strong>
+        </h2>
         <% @regions.each do |region| %>
         　<%= link_to region.name, public_rankings_path(region_id: region.id), class: "btn btn-outline-primary" %>
         <% end %>
       </div>
+      <div class = col-lg-6>
+        <h2 class = "mt-4"><strong>マップ上からゴルフ場名を検索する</strong></h2>
+        <h5 class="googlemap">     ★<strong>マップ上にピンを刺すと周辺のゴルフ場名がでます</strong></h5><br>
+        <%= render 'public/searches/searches' %>
     </div>
   </div>
 </div>
-<div class="container my-4">
-  <div class="row1">
-    <h2 class = "mt-4"><strong>マップ上からゴルフ場名を検索する</strong></h2>
-    <h5 class="googlemap">     ★<strong>マップ上にピンを刺すと周辺のゴルフ場名がでます</strong></h5><br>
-  </div>
-  <style>
-#gmap {
-  height: 400px;
-  width: 600px;
-}
-</style>
-</head>
-<body>
+<!--<div class="container my-4">-->
+  <!--<div class="row1">-->
 
-<div id="gmap"></div>
+  <!--</div>-->
 
-<script>
-var markers = []
-  var map;
-  function initMap() {
-    let target = document.getElementById('gmap');
-    let empire = {lat: 36.243119, lng: 138.563754};
-    //Empire State Bldg の緯度（latitude）と経度（longitude）
-    map = new google.maps.Map(target, {
-      center: empire,
-      zoom: 8
-    });
-
-    // クリックしたら自分のピンを作製する関数
-    google.maps.event.addListener(map, 'click', function(e){
-
-      if (markers <= 0) {
-
-        // クリックしたポジションにマーカーを生成
-        let marker = new google.maps.Marker({
-          position: e.latLng,
-          map: map,
-          icon: 'https://maps.google.com/mapfiles/ms/micons/blue-dot.png',
-          animation: google.maps.Animation.DROP
-        });
-        markers.push(marker);
-        map.panTo(e.latLng);
-
-        // 自分のピンのinfowindow
-        let info = new google.maps.InfoWindow({
-          content: "指定した位置"
-        });
-
-        //クリックしたマーカーにinfowindowを表示
-        google.maps.event.addListener(marker, 'click', function() {
-          info.open(map, marker);
-        });
-
-        service = new google.maps.places.PlacesService(map);
-
-      //   function deleteMakers() {
-    		//   if(marker != null){
-    		//     marker.setMap(null);
-    		//   }
-    		//   marker = null;
-      // 	}
-
-      // btnReplay();
-      //   $("#btn-replay").on("click",markerDelete);
-
-        // 周辺検索
-        nearbySearch(service, e.latLng, 30000, ['ゴルフ場'],'');
-
-        // 周辺検索の関数
-        function nearbySearch(service, latLng, radius, type, name){
-          service.nearbySearch({
-            location: latLng,
-            radius: radius,
-            type: type,
-            name: 'ゴルフ場'
-          }, callback);
-        }
-      }
-    });
-  }
-  // 周辺検索したマーカー生成の関数
-function createMarker(place) {
-  let markerPlace = new google.maps.Marker({
-    map: map,
-    position: place.geometry.location,
-    animation: google.maps.Animation.DROP
-  });
-
-
-  // infowindowインスタンス生成
-  infowindow = new google.maps.InfoWindow();
-
-  // クリックした周辺検索マーカーのinfowindow表示
-  markerPlace.addListener('click', function() {
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
-  });
-  markers.push(markerPlace);
-}
-// callbackで周辺検索したら発火
-function callback(results, status) {
-  // 周辺家検索結果からマーカー製成
-if (status === google.maps.DirectionsStatus.OK) {
-    createMarker(results[0]);
-    // 周辺検索結果のplace_idを使用してfields内の項目を検索
-    let request = {
-      placeId: results[0].place_id,
-      fields: ["name", "formatted_address", "photos", "rating", "formatted_phone_number", "website", "user_ratings_total"]
-    };
-  }
-
-  console.log(results, status);
-  for (let i = 0; i < results.length; i++) {
-    createMarker(results[i]);
-  }
-  return;
-}
-
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%= ENV['API_KEY']%>&callback=initMap&libraries=places" async defer></script><!-- API_KEYの部分は取得した APIキーで置き換えます -->
-<!--//マーカを削除するボタン-->
-<!--<button class ="gmap_btn"  id="del" onclick="deleteMakers();"/>マーカーを削除する</button>-->
-<p></p>
-</div>
+<!--</div>-->
 
 <div class="container my-4">
   <div class="ranking mx-auto">
