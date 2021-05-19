@@ -65,7 +65,7 @@
           <strong>県名からゴルフ場を探す</strong>
         </h2>
         <% @prefectures.each do |prefecture| %>
-        　<%= link_to prefecture.name, public_public_golfcourses_path(prefecture_id: prefecture.id), class: "btn btn-outline-primary btn-sm" %>
+        　<%= link_to prefecture.name, public_public_golfcourses_path(prefecture_id: prefecture.id), class: "btn btn-outline-success btn-sm" %>
         <% end %>
       </div>
       <div class = col-lg-6>
