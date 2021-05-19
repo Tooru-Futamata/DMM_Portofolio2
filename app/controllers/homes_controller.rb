@@ -2,6 +2,8 @@ class HomesController < ApplicationController
   def top
     # 地方名から絞る
     @regions = Region.all
+    #　県名から絞る
+    @prefectures = Prefecture.all
     # ランキング機能
     @golf_courses = GolfCourse.
       find(Post.

@@ -59,7 +59,13 @@
           <strong>地方からゴルフ場を探す</strong>
         </h2>
         <% @regions.each do |region| %>
-        　<%= link_to region.name, public_rankings_path(region_id: region.id), class: "btn btn-outline-primary" %>
+        　<%= link_to region.name, public_rankings_path(region_id: region.id), class: "btn btn-outline-primary btn-sm" %>
+        <% end %>
+        <h2 class="title my-4">
+          <strong>県名からゴルフ場を探す</strong>
+        </h2>
+        <% @prefectures.each do |prefecture| %>
+        　<%= link_to prefecture.name, public_public_golfcourses_path(prefecture_id: prefecture.id), class: "btn btn-outline-primary btn-sm" %>
         <% end %>
       </div>
       <div class = col-lg-6>
