@@ -47,6 +47,9 @@ https://docs.google.com/spreadsheets/d/1uTcRCtLYN8S174jrzxAstAS1phlSohkUcoHqUFI4
 - 単体テスト（RSpec)
 - リーダブルコード（rubocop)
 - API(GoogleMapAPI, GooglePlacesAPI, NaturalLanguageAPI)
+- CI/CD環境構築(Github Action)
+- 環境変数(dotenv-rails)
+
 
 ## 開発環境
 - OS：Linux(CentOS)
