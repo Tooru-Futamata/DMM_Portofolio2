@@ -65,23 +65,17 @@
           <strong>県名からゴルフ場を探す</strong>
         </h2>
         <% @prefectures.each do |prefecture| %>
-        　<%= link_to prefecture.name, public_public_golfcourses_path(prefecture_id: prefecture.id), class: "btn btn-outline-success btn-sm" %>
+        　<%= link_to prefecture.name, public_public_golfcourses_path(prefecture_id: prefecture.id), class: "btn btn-outline-dark btn-sm" %>
         <% end %>
       </div>
       <div class = col-lg-6>
         <h2 class = "mt-4"><strong>マップ上からゴルフ場名を検索する</strong></h2>
         <h5 class="googlemap">     ★<strong>マップ上にピンを刺すと周辺のゴルフ場名がでます</strong></h5><br>
         <%= render 'public/searches/searches' %>
+      </div>
     </div>
   </div>
 </div>
-<!--<div class="container my-4">-->
-  <!--<div class="row1">-->
-
-  <!--</div>-->
-
-<!--</div>-->
-
 <div class="container my-4">
   <div class="ranking mx-auto">
     <h2 class="my-4"><strong>ゴルフ場ランキング</strong></h2>
