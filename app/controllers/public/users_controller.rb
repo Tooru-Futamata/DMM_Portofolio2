@@ -18,7 +18,6 @@ class Public::UsersController < ApplicationController
     # if params[:name].present?
     #   @users = @users.get_by_name params[:name]
     # end
-
   end
 
   def edit

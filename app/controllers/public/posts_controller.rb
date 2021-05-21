@@ -37,7 +37,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.golf_course_id = params[:golf_course_id]
-    @post.score = Language.get_data(post_params[:content])  #この行を追加
+    @post.score = Language.get_data(post_params[:content]) # この行を追加
     if @post.save!
       redirect_to public_public_golfcourse_path(@post.golf_course_id)
     else

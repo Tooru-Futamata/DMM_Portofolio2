@@ -11,7 +11,7 @@ class Public::RankingsController < ApplicationController
       @golf_courses = GolfCourse.all
     end
 
-    #ランキング機能（昇順）
+    # ランキング機能（昇順）
     golf_courses = @golf_courses.
       find(Post.where(golf_course_id: @golf_courses.ids).
                       group(:golf_course_id).
@@ -21,11 +21,10 @@ class Public::RankingsController < ApplicationController
     params[:page] ||= 1
     @golf_courses = Kaminari.paginate_array(golf_courses).page(params[:page]).per(8)
 
-    #地方で絞るボタン
+    # 地方で絞るボタン
     @regions = Region.all
-    #県名で絞るボタン
+    # 県名で絞るボタン
     @prefectures = Prefecture.all
-
   end
 
   def show

@@ -33,7 +33,6 @@ class GolfCourse < ApplicationRecord
   #   where("name like ?", "%#{name}%")
   #   }
 
-
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
@@ -52,5 +51,4 @@ class GolfCourse < ApplicationRecord
       posts.average(:rate).round(1).to_f * 100 / 5
     end
   end
-
 end
