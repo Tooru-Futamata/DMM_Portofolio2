@@ -37,7 +37,11 @@
         <%= link_to public_public_golfcourse_path(golf_course.id) do %>
           <%= attachment_image_tag golf_course, :image, size: "200x150", fallback: "no_image.jpeg" %><br>
         <% end %>
-        <strong><%= golf_course.name %></strong><br>
+        <strong>
+          <%= link_to public_public_golfcourse_path(golf_course.id) do %>
+            <%= golf_course.name %>
+          <% end %>
+          </strong><br>
         <%= golf_course.prefecture.name %>
         <%= golf_course.address %>
       </div>
