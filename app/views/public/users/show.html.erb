@@ -11,7 +11,6 @@
       </div>
     <% end %>
   </div>
-  <%= render "public/users/tab", posts: @posts, like_list: @like_list, user: @user %>
-  <div class-"paginate"><%= paginate @posts %></div>
+  <%= render "public/users/tab", posts: @posts, like_list: @like_list, user: @user, like_lists: @like_lists %>
 </div>
 
