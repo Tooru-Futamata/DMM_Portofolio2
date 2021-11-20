@@ -39,12 +39,6 @@ class Admin::GolfCoursesController < ApplicationController
 
   def create
     @golf_course = GolfCourse.new(golf_course_params)
-    if @golf_course.save!
-      redirect_to admin_golf_course_path(@golf_course)
-    else
-      flash.now[:warning] = "入力不備があります"
-      render :new
-    end
   end
 
   def destroy

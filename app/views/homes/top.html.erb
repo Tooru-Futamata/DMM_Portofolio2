@@ -1,32 +1,21 @@
-<!--<div class="container">-->
-<!--  <h1 class="title text-center">Favorite Golf Course</h1>-->
-<!--  <div class="cover-inner text-center">-->
-    <%#= image_tag "golf.jpeg", :width => '700', :height => '400' %>
-<!--  </div>-->
-<!--</div>-->
 <header class="masthead text-white text-center">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <h1 class="mb-3"><strong>FavoriteGolfCourse</strong></h1>
+        <h1 class="mb-3"><strong>FavoritGolf⛳</strong></h1>
       </div>
-      <!--<h5 class="col-xl-8 mx-auto text-white text-center">-->
-      <!--  FavoriteGolfCourseは、あなたが行きたいゴルフ場が簡単に見つかります。<br>-->
-      <!--  どんな特徴のあるコースなのか、人気があるコースはどのゴルフ場か、<br>-->
-      <!--  ゴルファー達の経験を元にしたレビューから、すばやく見つけてみませんか？<br>-->
-      <!--</h5>-->
     </div>
   </div>
 </header>
 <div class="features">
   <div class="container">
     <div class="section-title text-center">
-      <h2 class="title m-4"><strong>FavoriteGolfCourse</strong>とは？</h2>
+      <h2 class="title m-4"><strong>FavoritGolf</strong>とは？</h2>
       <h4 class="title mb-4">
-        FavoriteGolfCourseは、あなたが行きたいゴルフ場が簡単に見つかります。<br>
+        FavoritGolfは、あなたがラウンドしたゴルフ場のスコアや情報を管理できます。<br>
         どんな特徴のあるコースなのか、人気があるコースはどのゴルフ場か、<br>
-        ゴルファー達の経験を元にしたレビューから、すばやく見つけてみませんか？<br>
+        ゴルファー達の経験を覗きながらあなたのゴルフライフに活用しませんか？<br>
       </h4>
     </div>
     <div class="row">
@@ -35,12 +24,6 @@
         <i class="far fa-comment" style="font-size: 40px"></i>
         <h3 class="feature-title" style="font-size: 20px"><strong>リアルな口コミ</strong></h3>
         <p>✔	ゴルファーによるリアルな口コミでゴルフ場選びをサポート</p>
-      </div>
-      <div class="col-lg-4 col-sm-4 feature text-center">
-        <span aria-hidden="true" class="glyphicon glyphicon-check" style="font-size: 40px"></span>
-        <i class="fas fa-search" style="font-size: 40px"></i>
-        <h3 class="feature-title" style="font-size: 20px"><strong>探しやすい</strong></h3>
-        <p>✔	気になるゴルフ場を検索フォームやランキングから検索可能</p>
       </div>
       <div class="col-lg-4 col-sm-4 feature text-center">
         <span aria-hidden="true" class="glyphicon glyphicon-check" style="font-size: 40px"></span>
@@ -56,45 +39,21 @@
     <div class="row mx-auto">
       <div class="justify-content-center col-lg-6">
         <h2 class="title my-4">
-          <strong>地方からゴルフ場を探す</strong>
+          <strong>・地方からゴルフ場を探す</strong>
         </h2>
         <% @regions.each do |region| %>
         　<%= link_to region.name, public_rankings_path(region_id: region.id), class: "btn btn-outline-primary btn-sm" %>
         <% end %>
         <h2 class="title my-4">
-          <strong>県名からゴルフ場を探す</strong>
+          <strong>・県名からゴルフ場を探す</strong>
         </h2>
         <% @prefectures.each do |prefecture| %>
         　<%= link_to prefecture.name, public_public_golfcourses_path(prefecture_id: prefecture.id), class: "btn btn-outline-dark btn-sm" %>
         <% end %>
       </div>
-      <div class = col-lg-6>
-        <h2 class = "mt-4"><strong>マップ上からゴルフ場名を検索する</strong></h2>
-        <h5 class="googlemap">     ★<strong>マップ上にピンを刺すと周辺のゴルフ場名がでます</strong></h5><br>
-        <%= render 'public/searches/searches' %>
       </div>
     </div>
   </div>
 </div>
-<div class="container my-4">
-  <div class="ranking mx-auto">
-    <h2 class="my-4"><strong>ゴルフ場ランキング</strong></h2>
-    <div class="row">
-      <% @golf_courses.each.with_index(1) do |golf_course, i| %>
-        <div class="col-lg-3 col-sm-3 p-1">
-          <strong>第<%= i %>位</strong><br>
-          <%= link_to public_public_golfcourse_path(golf_course.id) do %>
-            <%= attachment_image_tag golf_course, :image, size: "180x120", fallback: "no_image.jpeg",class: "button grow p-2" %><br>
-          <% end %>
-          <strong>
-            <%= link_to public_public_golfcourse_path(golf_course.id) do %>
-              <%= golf_course.name %>
-            <% end %>
-          </strong><br>
-          <span><%= golf_course.prefecture.name %><%= golf_course.address %></span>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+
 

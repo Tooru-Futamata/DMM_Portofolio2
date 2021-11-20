@@ -49,17 +49,3 @@
   </div>
 
 <div class= "paginate col-lg-3 mx-auto"><%= paginate @golf_courses %></div>
-
-<!--同着同位機能-->
-<%# if i == 1 %>
-  <%# prev = golf_course.avg_score %>
-<%# end %>
-<%# if golf_course.avg_score != prev %>
-  <%# j = i + rank  %>
-  <!--<strong>第<%#= j %>位</strong><br>-->
-  <%# prev = golf_course.avg_score %>
-<%# else %>
-  <%# prev = golf_course.avg_score %>
-  <!--<strong>第<%#= j %>位</strong><br>-->
-<%# end %>
-
